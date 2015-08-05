@@ -42,7 +42,9 @@ $controller = new RestController();
         </div><!-- /#action-container -->
 
         <div id="result-container" class="row">
-            <h3>Results show here:</h3>
+            <div id="result-title" class="col-xs-12">
+                <h3>Results show here:</h3>
+            </div><!-- /#result-title -->
             <div id="progress-container" class="col-xs-12 hidden">
                 <div class="progress">
                     <div id="progressbar" class="progress-bar" role="progressbar">
