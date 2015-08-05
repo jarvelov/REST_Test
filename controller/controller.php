@@ -44,6 +44,10 @@ Class RestController {
 
     /** Helper Classes **/
 
+    public function init() {
+        $model = new Model();
+    }
+
     //Ready for take off!
     public function start() {
         Flight::start();
