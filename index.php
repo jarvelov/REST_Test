@@ -3,8 +3,6 @@
 require 'vendor/autoload.php';
 require 'controller/controller.php';
 
-$controller = new RestController();
-
 ?>
 
 <!DOCTYPE html>
@@ -30,3 +28,10 @@ $controller = new RestController();
     </div><!-- /.container -->
 </body>
 </html>
+
+<?php
+
+$controller = new RestController();
+$controller->start();
+
+?>
