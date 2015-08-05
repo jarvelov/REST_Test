@@ -41,11 +41,17 @@ $controller = new RestController();
                 <div class="form-group">
                     <label class="control-label" for="add-name">Name</label>
                     <input id="add-name" ng-model="name" type="text" class="form-control" placeholder="Name" />
+                </div><!-- /.form-group -->
+                <div class="form-group">
                     <label class="control-label" for="add-username">Username</label>
                     <input id="add-username" ng-model="username" type="text" class="form-control" placeholder="Username" />
-                    <label class="control-label" for="add-password">Name</label>
+                </div><!-- /.form-group -->
+                <div class="form-group">
+                    <label class="control-label" for="add-password">Password</label>
                     <input id="add-password" ng-model="password" type="password" class="form-control" placeholder="Password" />
-                    <label class="control-label" for="add-email">Name</label>
+                </div><!-- /.form-group -->
+                <div class="form-group">
+                    <label class="control-label" for="add-email">E-mail</label>
                     <input id="add-email" ng-model="email" type="email" class="form-control" placeholder="E-mail" />
                 </div><!-- /.form-group -->
             </div><!-- /#addUserForm -->
