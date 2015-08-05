@@ -19,6 +19,6 @@ REST.controller(
             $scope.progressHide = true;
         }
 
-        $scope.reset();
+        //$scope.reset();
     }
 );
