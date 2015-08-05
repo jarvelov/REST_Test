@@ -20,3 +20,10 @@ REST.controller(
         }
     }
 );
+
+REST.controller(
+    "getUserController",
+    function($scope) {
+        //Code here
+    }
+);
