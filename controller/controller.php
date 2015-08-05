@@ -43,12 +43,24 @@ Class RestController {
         }
     }
 
+    /** Helper Classes **/
+
     public function init() {
 
     }
 
     public function start() {
         Flight::start();
+    }
+
+    public function convertToJSON($message) {
+        Flight::json();
+    }
+
+    /** Database Communication **/
+
+    public function saveUser($name, $username, $password, $email) {
+        echo "Saved user: $name";
     }
 
 }
