@@ -14,11 +14,11 @@ REST.controller(
         }
 
         $scope.reset = function() {
-            $scope.hideAddUserForm = false;
-            $scope.hideGetUserForm = false;
-            $scope.progressHide = false;
+            $scope.hideAddUserForm = true;
+            $scope.hideGetUserForm = true;
+            $scope.progressHide = true;
         }
 
-        //$scope.reset();
+        $scope.reset();
     }
 );
