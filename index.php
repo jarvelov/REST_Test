@@ -48,6 +48,12 @@ $controller = new RestController();
             </div><!-- /#getUserForm -->
         </div><!-- /#parameter-container -->
 
+        <div id="action-container" class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-block btn-primary {{action === false ? "disabled" : "" }} ">{{action === false ? "Select action up top!" : "Run action: {{action}}"}}</button>
+            </div>
+        </div>
+
         <div id="result-container" class="row">
             <div id="result-title" class="col-xs-12">
                 <h3>Results show here:</h3>
