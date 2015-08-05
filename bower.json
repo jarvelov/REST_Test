@@ -1,0 +1,39 @@
+{
+  "name": "rest20150805",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jarvelov/REST_Test",
+  "authors": [
+    "Tobias Järvelöv <tobias@jarvelov.se>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.3",
+    "bootstrap": "~3.3.5"
+  },
+  "install": {
+      "base": "lib",
+      "path": {
+        "js": "{key}/js",
+        "css": "{key}/css",
+        "eot": "{key}/fonts",
+        "svg": "{key}/fonts",
+        "ttf": "{key}/fonts",
+        "woff": "{key}/fonts",
+        "woff2": "{key}/fonts",
+        "otf": "{key}/fonts"
+    },
+    "sources": {
+        "bootstrap" : [
+            "bower_components/bootstrap/dist/css/bootstrap.min.css",
+            "bower_components/bootstrap/dist/js/bootstrap.min.js",
+        ]
+    }
+  }
+}
