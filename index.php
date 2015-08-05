@@ -37,13 +37,13 @@ $controller = new RestController();
             <div class="col-xs-12">
                 <h3>Extra parameters</h3>
             </div>
-            <div id="addUserForm" class="col-xs-12" ng-hide="addUserFormHide">
+            <div id="addUserForm" class="col-xs-12" ng-hide="hideAddUserForm">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
                 <input ng-model="password" type="password" class="form-control" placeholder="Name" />
                 <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
             </div><!-- /#addUserForm -->
-            <div id="getUserForm" class="col-xs-12" ng-hide="getUserFormHide">
+            <div id="getUserForm" class="col-xs-12" ng-hide="hideGetUserForm">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
         </div><!-- /#parameter-container -->
