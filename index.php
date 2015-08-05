@@ -23,10 +23,10 @@ $controller = new RestController();
                 <h3>Options</h3>
             </div>
             <div class="col-xs-4">
-                <button id="addUser" class="btn btn-block btn-default" ng-click"getAddUserForm()">Add User</button>
+                <button id="addUser" class="btn btn-block btn-default" ng-click="formAddUser()">Add User</button>
             </div>
             <div class="col-xs-4">
-                <button id="getUser" class="btn btn-block btn-default" ng-click="getUserForm()">Get A User</button>
+                <button id="getUser" class="btn btn-block btn-default" ng-click="formGetUser()">Get A User</button>
             </div>
             <div class="col-xs-4">
                 <button id="getAllUsers" class="btn btn-block btn-default" ng-click="getAllUsers()">Get All Users</button>
@@ -37,13 +37,13 @@ $controller = new RestController();
             <div class="col-xs-12">
                 <h3>Extra parameters</h3>
             </div>
-            <div id="addUserForm" class="col-xs-12" ng-hide="hideGetUserForm">
+            <div id="addUserForm" class="col-xs-12" ng-show="hideGetUserForm">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
                 <input ng-model="password" type="password" class="form-control" placeholder="Name" />
                 <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
             </div><!-- /#addUserForm -->
-            <div id="getUserForm" class="col-xs-12" ng-hide="hideGetUserForm">
+            <div id="getUserForm" class="col-xs-12" ng-show="hideGetUserForm">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
         </div><!-- /#parameter-container -->
@@ -52,7 +52,7 @@ $controller = new RestController();
             <div id="result-title" class="col-xs-12">
                 <h3>Results show here:</h3>
             </div><!-- /#result-title -->
-            <div id="progress-container" class="col-xs-12" ng-hide="progressHide">
+            <div id="progress-container" class="col-xs-12" ng-show="progressHide">
                 <div class="progress">
                     <div id="progressbar" class="progress-bar" role="progressbar">
                     </div><!-- /#progressbar -->

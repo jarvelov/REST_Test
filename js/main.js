@@ -3,22 +3,22 @@ var REST = angular.module("REST", []);
 REST.controller(
     "mainController",
     function($scope) {
-        $scope.hideAddUserForm = true;
-        $scope.hideGetUserForm = true;
-
-        $scope.progressHide = true;
-
-        $scope.addUserForm = function() {
-            console.log('debug');
+        $scope.formAddUser = function() {
+            $scope.reset();
             $scope.hideAddUserForm = !$scope.hideAddUserForm;
         }
 
-        $scope.getAddUserForm = function() {
-            console.log('debug');
-        }
-
-        $scope.getUserForm = function() {
+        $scope.formGetUser = function() {
+            $scope.reset();
             $scope.hideGetUserForm = !$scope.hideGetUserForm;
         }
+
+        $scope.reset = function() {
+            $scope.hideAddUserForm = false;
+            $scope.hideGetUserForm = false;
+            $scope.progressHide = false;
+        }
+
+        //$scope.reset();
     }
 );
