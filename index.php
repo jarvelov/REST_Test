@@ -13,17 +13,18 @@ $controller = new RestController();
     <script src="lib/jquery/js/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="lib/angularjs/js/angular.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="col-xs-4">
-            <a class="btn btn-block btn-default" href="/tmp/resttest/REST_Test/users/getAllUsers">Add User</a>
+            <a id="addUser" class="btn btn-block btn-default" href="#">Add User</a>
         </div>
         <div class="col-xs-4">
-            <a class="btn btn-block btn-default" href="/tmp/resttest/REST_Test/users/getAllUsers">List All Users</a>
+            <a id="getUser" class="btn btn-block btn-default" href="#">List All Users</a>
         </div>
         <div class="col-xs-4">
-            <a class="btn btn-block btn-default" href="/tmp/resttest/REST_Test/users/getAllUsers">List All Users</a>
+            <a id="getAllUsers" class="btn btn-block btn-default" href="#">List All Users</a>
         </div>
     </div><!-- /.container -->
 </body>
