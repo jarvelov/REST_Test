@@ -3,9 +3,7 @@ angular.module("REST", [])
         "optionController",
         function($scope) {
             //Code here
-        }
-    );
-    .controller(
+        },
         "addUserController",
         function($scope) {
             //Code here
