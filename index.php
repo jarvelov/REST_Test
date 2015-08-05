@@ -50,7 +50,7 @@ $controller = new RestController();
 
         <div id="action-container" class="row">
             <div class="col-xs-12">
-                <button class="btn btn-block btn-primary {{formAction === false ? 'disabled' : '' }} ">{{formAction === false ? "Select action up top!" : "Run action: formAction"}}</button>
+                <button class="btn btn-block btn-primary {{formAction === false ? 'disabled' : '' }} ">{{formAction === false ? "Select action up top!" : "Run action : " + formAction}}</button>
             </div>
         </div>
 
