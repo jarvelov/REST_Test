@@ -35,7 +35,7 @@ $controller = new RestController();
 
         <div id="parameter-container" class="row" ng-hide="hideParameter">
             <div class="col-xs-12">
-                <h3>Extra parameters</h3>
+                <h3>Required parameters</h3>
             </div>
             <div id="addUserForm" class="col-xs-12" ng-hide="hideAddUserForm">
                 <div class="form-group">
