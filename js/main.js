@@ -5,12 +5,16 @@ REST.controller(
     function($scope) {
         $scope.formAddUser = function() {
             $scope.reset();
+
+            $scope.hideParameter = false;
             $scope.formAction = 'Add user!';
             $scope.hideAddUserForm = !$scope.hideAddUserForm;
         }
 
         $scope.formGetUser = function() {
             $scope.reset();
+
+            $scope.hideParameter = false;
             $scope.formAction = 'Get user!';
             $scope.hideGetUserForm = !$scope.hideGetUserForm;
         }
