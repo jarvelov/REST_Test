@@ -1,3 +1,14 @@
+body {
+    background-image: url('http://subtlepatterns.com/patterns/tree_bark.png');
+}
+
 .row {
     margin-top: 30px;
+}
+
+.container {
+    margin-top: 40px;
+    box-shadow: 5px 5px 5px rgba(150, 150, 150, 0.8);
+    background-color: #FFF;
+    border: 1px solid #DDD;
 }
