@@ -1,1 +1,3 @@
-console.log('initalized');
+jQuery(document).ready(function() {
+    console.log('initalized');
+});
