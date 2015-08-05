@@ -1,4 +1,4 @@
-var REST = angular.module("REST", ['$scope']);
+var REST = angular.module("REST", []);
 
 REST.controller(
     "optionController",
