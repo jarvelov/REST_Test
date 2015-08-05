@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 require 'controller/controller.php';
-
+$controller = new RestController();
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +17,13 @@ require 'controller/controller.php';
 <body>
     <div class="container">
         <div class="col-xs-4">
-            <a class="btn btn-block btn-default" href="/users/getAllUsers">Add User</a>
+            <a class="btn btn-block btn-default" href="/tmp/resttest/REST_Test/users/getAllUsers">Add User</a>
         </div>
         <div class="col-xs-4">
-            <a class="btn btn-block btn-default" href="/users/getAllUsers">List All Users</a>
+            <a class="btn btn-block btn-default" href="/tmp/resttest/REST_Test/users/getAllUsers">List All Users</a>
         </div>
         <div class="col-xs-4">
-            <a class="btn btn-block btn-default" href="/users/getAllUsers">List All Users</a>
+            <a class="btn btn-block btn-default" href="/tmp/resttest/REST_Test/users/getAllUsers">List All Users</a>
         </div>
     </div><!-- /.container -->
 </body>
@@ -31,7 +31,6 @@ require 'controller/controller.php';
 
 <?php
 
-$controller = new RestController();
 $controller->start();
 
 ?>
