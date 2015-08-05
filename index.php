@@ -56,7 +56,10 @@ $controller = new RestController();
                 </div><!-- /.form-group -->
             </div><!-- /#addUserForm -->
             <div id="getUserForm" class="col-xs-12" ng-hide="hideGetUserForm">
-                <input ng-model="username" type="text" class="form-control" placeholder="Username" />
+                <div class="form-group">
+                    <label class="control-label" for="get-user">Username</label>
+                    <input ng-model="username" type="text" class="form-control" placeholder="Username" />
+                </div><!-- /.form-group -->
             </div><!-- /#getUserForm -->
         </div><!-- /#parameter-container -->
 
