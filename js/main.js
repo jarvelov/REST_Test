@@ -12,7 +12,6 @@ REST.controller(
     function($scope) {
         //Code here
         $scope.addUserFormHide = true;
-        $scope.getUserFormHide = true;
         $scope.progressHide = true;
 
         $scope.addUserForm = function() {
@@ -29,5 +28,10 @@ REST.controller(
     "getUserController",
     function($scope) {
         //Code here
+        $scope.getUserFormHide = true;
+
+        $scope.getUserForm = function() {
+            $scope.getUserFormHide = !$scope.getUserFormHide;
+        }
     }
 );
