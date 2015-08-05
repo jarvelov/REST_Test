@@ -17,10 +17,6 @@ REST.controller(
         $scope.addUserForm = function() {
             $scope.addUserFormHide = !$scope.addUserFormHide;
         }
-
-        $scope.addUserForm = function() {
-            return 'addUserForm';
-        }
     }
 );
 
