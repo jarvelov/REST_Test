@@ -2,18 +2,6 @@
 
 Class RestController {
 
-    public function addUser($name, $username, $password, $email) {
-        echo $name;
-    }
-
-    public function getAllUsers() {
-
-    }
-
-    public function getUser($username) {
-
-    }
-
     function __construct() {
         if( class_exists('Flight') ) {
             //Hook up all REST requests to functions
@@ -40,19 +28,29 @@ Class RestController {
         }
     }
 
-    /** Helper Classes **/
+    /** REST callbacks **/
 
-    public function init() {
+    public function addUser($name, $username, $password, $email) {
+        echo $name;
+    }
+
+    public function getAllUsers() {
 
     }
+
+    public function getUser($username) {
+
+    }
+
+    /** Helper Classes **/
 
     //Ready for take off!
     public function start() {
         Flight::start();
     }
 
-    public function convertToJSON($message) {
-        Flight::json();
+    public function convertToJSON($string) {
+        return Flight::json($string);
     }
 
     /** Database Communication **/

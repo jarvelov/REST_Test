@@ -71,7 +71,7 @@ $controller = new RestController();
 
         <div id="result-container" class="row">
             <div id="result-title" class="col-xs-12">
-                <h3>Results show here:</h3>
+                <h3>Results</h3>
             </div><!-- /#result-title -->
             <div id="progress-container" class="col-xs-12" ng-hide="hideProgress">
                 <div class="progress">
