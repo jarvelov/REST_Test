@@ -15,6 +15,11 @@ REST.controller(
             $scope.hideGetUserForm = !$scope.hideGetUserForm;
         }
 
+        $scope.getAllUsers = function() {
+            $scope.reset();
+            $scope.formAction = 'Get all users!';
+        }
+
         $scope.reset = function() {
             $scope.formAction = false;
             $scope.hideAddUserForm = true;
