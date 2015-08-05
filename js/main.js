@@ -5,11 +5,13 @@ REST.controller(
     function($scope) {
         $scope.formAddUser = function() {
             $scope.reset();
+            $scope.action = 'Add user!';
             $scope.hideAddUserForm = !$scope.hideAddUserForm;
         }
 
         $scope.formGetUser = function() {
             $scope.reset();
+            $scope.action = 'Get user!';
             $scope.hideGetUserForm = !$scope.hideGetUserForm;
         }
 
