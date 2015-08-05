@@ -31,13 +31,13 @@ $controller = new RestController();
         </div><!-- /#option-container -->
 
         <div id="action-container" class="row">
-            <div id="addUserForm" class="col-xs-12 hide-me" ng-controller="addUserController">
+            <div id="addUserForm" class="col-xs-12" ng-hide="addUserFormHide" ng-controller="addUserController">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
                 <input ng-model="password" type="password" class="form-control" placeholder="Name" />
                 <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
             </div><!-- /#addUserForm -->
-            <div id="getUserForm" class="col-xs-12 hide-me" ng-controller="getUserController">
+            <div id="getUserForm" class="col-xs-12" ng-hide="getUserFormHide" ng-controller="getUserController">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
         </div><!-- /#action-container -->
@@ -46,7 +46,7 @@ $controller = new RestController();
             <div id="result-title" class="col-xs-12">
                 <h3>Results show here:</h3>
             </div><!-- /#result-title -->
-            <div id="progress-container" class="col-xs-12 hide-me">
+            <div id="progress-container" class="col-xs-12" ng-hide="progressHide">
                 <div class="progress">
                     <div id="progressbar" class="progress-bar" role="progressbar">
                     </div><!-- /#progressbar -->
