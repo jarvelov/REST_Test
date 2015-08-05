@@ -37,7 +37,7 @@ $controller = new RestController();
             <div class="col-xs-12">
                 <h3>Extra parameters</h3>
             </div>
-            <div id="addUserForm" class="col-xs-12" ng-hide="hideAddUserForm">
+            <div id="addUserForm" class="col-xs-12" ng-hide="hideGetUserForm">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
                 <input ng-model="password" type="password" class="form-control" placeholder="Name" />
