@@ -6,9 +6,9 @@ $controller = new RestController();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html ng-app="REST">
 <head>
-    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <script src="lib/jquery/js/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
@@ -17,15 +17,37 @@ $controller = new RestController();
 </head>
 <body>
     <div class="container">
-        <div class="col-xs-4">
-            <a id="addUser" class="btn btn-block btn-default" href="#">Add User</a>
-        </div>
-        <div class="col-xs-4">
-            <a id="getUser" class="btn btn-block btn-default" href="#">List All Users</a>
-        </div>
-        <div class="col-xs-4">
-            <a id="getAllUsers" class="btn btn-block btn-default" href="#">List All Users</a>
-        </div>
+        <div id="option-container" class="row" ng-controller="optionController">
+            <div class="col-xs-4">
+                <button id="addUser" class="btn btn-block btn-default" ng-click"addUserForm()">Add User</button>
+            </div>
+            <div class="col-xs-4">
+                <button id="getUser" class="btn btn-block btn-default" ng-click="getUserForm()">Get A User</button>
+            </div>
+            <div class="col-xs-4">
+                <button id="getAllUsers" class="btn btn-block btn-default" ng-click="getAllUsers()">Get All Users</button>
+            </div>
+        </div><!-- /#option-container -->
+
+        <div id="action-container" class="row">
+            <div id="addUserForm" class="col-xs-12" ng-controller="addUserController">
+                <input ng-model="name" type="text" class="form-control" placeholder="Name" />
+                <input ng-model="username" type="text" class="form-control" placeholder="Username" />
+                <input ng-model="password" type="password" class="form-control" placeholder="Name" />
+                <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
+            </div><!-- /#addUserForm -->
+            <div id="getUserForm" class="col-xs-12" ng-controller="getUserController">
+            </div><!-- /#getUserForm -->
+        </div><!-- /#action-container -->
+
+        <div id="result-container" class="row">
+            <div id="progress-container" class="col-xs-12">
+                <div class="progress">
+                    <div id="progressbar" class="progress-bar" role="progressbar">
+                    </div><!-- /#progressbar -->
+                </div><!-- /.progress -->
+            </div><!-- /#progress-container -->
+        </div><!-- /.row -->
     </div><!-- /.container -->
 </body>
 </html>
