@@ -29,14 +29,14 @@ $controller = new RestController();
             </div>
         </div><!-- /#option-container -->
 
-        <div id="action-container" class="row hidden">
-            <div id="addUserForm" class="col-xs-12" ng-controller="addUserController">
+        <div id="action-container" class="row">
+            <div id="addUserForm" class="col-xs-12 hidden" ng-controller="addUserController">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
                 <input ng-model="password" type="password" class="form-control" placeholder="Name" />
                 <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
             </div><!-- /#addUserForm -->
-            <div id="getUserForm" class="col-xs-12" ng-controller="getUserController">
+            <div id="getUserForm" class="col-xs-12 hidden" ng-controller="getUserController">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
         </div><!-- /#action-container -->

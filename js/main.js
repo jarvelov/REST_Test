@@ -13,7 +13,7 @@ REST.controller(
         //Code here
 
         $scope.addUserForm = function() {
-            return 'addUserForm';
+            jQuery('#addUserForm').show();
         }
 
         $scope.addUserForm = function() {
