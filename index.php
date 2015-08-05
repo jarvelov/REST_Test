@@ -38,10 +38,16 @@ $controller = new RestController();
                 <h3>Extra parameters</h3>
             </div>
             <div id="addUserForm" class="col-xs-12" ng-hide="hideAddUserForm">
-                <input ng-model="name" type="text" class="form-control" placeholder="Name" />
-                <input ng-model="username" type="text" class="form-control" placeholder="Username" />
-                <input ng-model="password" type="password" class="form-control" placeholder="Name" />
-                <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
+                <div class="form-group">
+                    <label class="control-label" for="add-name">Name</label>
+                    <input id="add-name" ng-model="name" type="text" class="form-control" placeholder="Name" />
+                    <label class="control-label" for="add-username">Username</label>
+                    <input id="add-username" ng-model="username" type="text" class="form-control" placeholder="Username" />
+                    <label class="control-label" for="add-password">Name</label>
+                    <input id="add-password" ng-model="password" type="password" class="form-control" placeholder="Password" />
+                    <label class="control-label" for="add-email">Name</label>
+                    <input id="add-email" ng-model="email" type="email" class="form-control" placeholder="E-mail" />
+                </div><!-- /.form-group -->
             </div><!-- /#addUserForm -->
             <div id="getUserForm" class="col-xs-12" ng-hide="hideGetUserForm">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
