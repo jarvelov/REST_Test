@@ -13,6 +13,10 @@ REST.controller(
             $scope.hideAddUserForm = !$scope.hideAddUserForm;
         }
 
+        $scope.getAddUserForm = function() {
+            console.log('debug');
+        }
+
         $scope.getUserForm = function() {
             $scope.hideGetUserForm = !$scope.hideGetUserForm;
         }

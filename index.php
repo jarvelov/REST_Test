@@ -23,7 +23,7 @@ $controller = new RestController();
                 <h3>Options</h3>
             </div>
             <div class="col-xs-4">
-                <button id="addUser" class="btn btn-block btn-default" ng-click"addUserForm()">Add User</button>
+                <button id="addUser" class="btn btn-block btn-default" ng-click"getAddUserForm()">Add User</button>
             </div>
             <div class="col-xs-4">
                 <button id="getUser" class="btn btn-block btn-default" ng-click="getUserForm()">Get A User</button>
