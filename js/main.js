@@ -14,6 +14,7 @@ REST.controller(
         }
 
         $scope.reset = function() {
+            $scope.action = false;
             $scope.hideAddUserForm = true;
             $scope.hideGetUserForm = true;
             $scope.progressHide = true;
