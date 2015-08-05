@@ -35,9 +35,6 @@ Class RestController {
             Flight::route('/users/get_user/@username', function() {
                 $this->getAllUsers();
             });
-
-            //Ready for take off!
-            $this->start();
         } else {
             echo "Error: Flight framework is not initalized!";
         }
@@ -49,6 +46,7 @@ Class RestController {
 
     }
 
+    //Ready for take off!
     public function start() {
         Flight::start();
     }

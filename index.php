@@ -30,4 +30,3 @@ $controller = new RestController();
     </div><!-- /.container -->
 </body>
 </html>
-
