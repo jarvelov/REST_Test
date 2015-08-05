@@ -29,7 +29,7 @@ $controller = new RestController();
             </div>
         </div><!-- /#option-container -->
 
-        <div id="action-container" class="row">
+        <div id="action-container" class="row hidden">
             <div id="addUserForm" class="col-xs-12" ng-controller="addUserController">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
@@ -37,11 +37,13 @@ $controller = new RestController();
                 <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
             </div><!-- /#addUserForm -->
             <div id="getUserForm" class="col-xs-12" ng-controller="getUserController">
+                <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
         </div><!-- /#action-container -->
 
         <div id="result-container" class="row">
-            <div id="progress-container" class="col-xs-12">
+            <h3>Results show here:</h3>
+            <div id="progress-container" class="col-xs-12 hidden">
                 <div class="progress">
                     <div id="progressbar" class="progress-bar" role="progressbar">
                     </div><!-- /#progressbar -->

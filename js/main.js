@@ -6,6 +6,7 @@ REST.controller(
         //Code here
     }
 );
+
 REST.controller(
     "addUserController",
     function($scope) {
