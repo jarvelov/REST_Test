@@ -17,8 +17,8 @@ $controller = new RestController();
     <script src="js/main.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div id="option-container" class="row" ng-controller="optionController">
+    <div class="container" ng-controller="mainController">
+        <div id="option-container" class="row">
             <div class="col-xs-4">
                 <button id="addUser" class="btn btn-block btn-default" ng-click"addUserForm()">Add User</button>
             </div>
@@ -31,13 +31,13 @@ $controller = new RestController();
         </div><!-- /#option-container -->
 
         <div id="action-container" class="row">
-            <div id="addUserForm" class="col-xs-12" ng-hide="addUserFormHide" ng-controller="addUserController">
+            <div id="addUserForm" class="col-xs-12" ng-hide="addUserFormHide">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
                 <input ng-model="password" type="password" class="form-control" placeholder="Name" />
                 <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
             </div><!-- /#addUserForm -->
-            <div id="getUserForm" class="col-xs-12" ng-hide="getUserFormHide" ng-controller="getUserController">
+            <div id="getUserForm" class="col-xs-12" ng-hide="getUserFormHide">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
         </div><!-- /#action-container -->
