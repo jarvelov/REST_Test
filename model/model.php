@@ -12,6 +12,7 @@ Class Model {
 <html ng-app="REST">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>REST test</title>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="lib/jquery/js/jquery.js"></script>
