@@ -10,6 +10,7 @@ $controller = new RestController();
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
     <script src="lib/jquery/js/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="lib/angularjs/js/angular.js"></script>
@@ -30,13 +31,13 @@ $controller = new RestController();
         </div><!-- /#option-container -->
 
         <div id="action-container" class="row">
-            <div id="addUserForm" class="col-xs-12 hidden" ng-controller="addUserController">
+            <div id="addUserForm" class="col-xs-12 hide-me" ng-controller="addUserController">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
                 <input ng-model="password" type="password" class="form-control" placeholder="Name" />
                 <input ng-model="email" type="email" class="form-control" placeholder="E-mail" />
             </div><!-- /#addUserForm -->
-            <div id="getUserForm" class="col-xs-12 hidden" ng-controller="getUserController">
+            <div id="getUserForm" class="col-xs-12 hide-me" ng-controller="getUserController">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
         </div><!-- /#action-container -->
@@ -45,7 +46,7 @@ $controller = new RestController();
             <div id="result-title" class="col-xs-12">
                 <h3>Results show here:</h3>
             </div><!-- /#result-title -->
-            <div id="progress-container" class="col-xs-12 hidden">
+            <div id="progress-container" class="col-xs-12 hide-me">
                 <div class="progress">
                     <div id="progressbar" class="progress-bar" role="progressbar">
                     </div><!-- /#progressbar -->
