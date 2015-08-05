@@ -33,7 +33,7 @@ $controller = new RestController();
             </div>
         </div><!-- /#option-container -->
 
-        <div id="parameter-container" class="row">
+        <div id="parameter-container" class="row" ng-hide="hideParameter">
             <div class="col-xs-12">
                 <h3>Extra parameters</h3>
             </div>
@@ -73,7 +73,7 @@ $controller = new RestController();
             <div id="result-title" class="col-xs-12">
                 <h3>Results show here:</h3>
             </div><!-- /#result-title -->
-            <div id="progress-container" class="col-xs-12" ng-hide="progressHide">
+            <div id="progress-container" class="col-xs-12" ng-hide="hideProgress">
                 <div class="progress">
                     <div id="progressbar" class="progress-bar" role="progressbar">
                     </div><!-- /#progressbar -->
