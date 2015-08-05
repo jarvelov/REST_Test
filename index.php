@@ -19,6 +19,9 @@ $controller = new RestController();
 <body>
     <div class="container" ng-controller="mainController">
         <div id="option-container" class="row">
+            <div class="col-xs-12">
+                <h3>Options</h3>
+            </div>
             <div class="col-xs-4">
                 <button id="addUser" class="btn btn-block btn-default" ng-click"addUserForm()">Add User</button>
             </div>
@@ -30,7 +33,10 @@ $controller = new RestController();
             </div>
         </div><!-- /#option-container -->
 
-        <div id="action-container" class="row">
+        <div id="parameter-container" class="row">
+            <div class="col-xs-12">
+                <h3>Extra parameters</h3>
+            </div>
             <div id="addUserForm" class="col-xs-12" ng-hide="addUserFormHide">
                 <input ng-model="name" type="text" class="form-control" placeholder="Name" />
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
@@ -40,7 +46,7 @@ $controller = new RestController();
             <div id="getUserForm" class="col-xs-12" ng-hide="getUserFormHide">
                 <input ng-model="username" type="text" class="form-control" placeholder="Username" />
             </div><!-- /#getUserForm -->
-        </div><!-- /#action-container -->
+        </div><!-- /#parameter-container -->
 
         <div id="result-container" class="row">
             <div id="result-title" class="col-xs-12">
