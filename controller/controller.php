@@ -102,7 +102,7 @@ Class RestController {
     }
 
     private function output($message) {
-        $json =  json_encode( $message, true );
+        $json =  json_encode( array( 'message' => $message ), true );
         echo $json;
     }
 
