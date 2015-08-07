@@ -18,6 +18,7 @@ Class DatabaseConnection {
         try {
             $this->db->openDatabase();
         } catch(Exception $e) { //Database does not seem to exist
+            var_dump($e);
             throw new Exception ('General error. Please check permissions', 1); //make this prettier
         }
     }
@@ -35,6 +36,7 @@ Class DatabaseConnection {
 
             $result = $stmt->execute();
         } catch(Exception $e) {
+            var_dump($e);
             throw new Exception("Error saving user to database!", 1);
         }
 
