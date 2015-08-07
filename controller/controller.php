@@ -52,7 +52,14 @@ Class RestController {
     /** Helper Classes **/
 
     public function init() {
-        $this->errors = $this->testEnvironment();
+        $this->testEnvironment();
+
+        try {
+            $this->connection = new DatabaseConnection();
+        } catch(Exception $e) {
+            $this->errors[] = $e->getMessage();
+        }
+
         $this->start();
     }
 
@@ -99,7 +106,7 @@ Class RestController {
             $errors[] = "Error: Flight framework is not initalized!";
         }
 
-        return $errors;
+        $this->$errors = $errors;
     }
 
     private function output($message) {
@@ -126,8 +133,7 @@ Class RestController {
 
     private function addDatabaseUser($name, $username, $password, $email) {
         try {
-            $dbConn = new DatabaseConnection();
-            $result = $dbConn->saveUserToDatabase( array(
+            $result = $this->connection->saveUserToDatabase( array(
                 'name' => $name,
                 'username' => $username,
                 'password' => $password,
@@ -144,8 +150,7 @@ Class RestController {
 
     private function getDatabaseUser($username) {
         try {
-            $dbConn = new DatabaseConnection();
-            $result = $dbConn->getUserFromDatabase( array(
+            $result = $this->connection->getUserFromDatabase( array(
                 'username' => $username
             ) );
         } catch(Exception $e) {
@@ -159,8 +164,7 @@ Class RestController {
 
     private function getAllDatabaseUsers() {
         try {
-            $dbConn = new DatabaseConnection();
-            $result = $dbConn->getAllUsersFromDatabase();
+            $result = $this->connection->getAllUsersFromDatabase();
         } catch(Exception $e) {
             //TODO handle error
             var_dump($e);

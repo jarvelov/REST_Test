@@ -15,7 +15,6 @@ if(class_exists('SQLite3')) {
             try {
                 $this->db = $this->open( $this->dbpath );
             } catch(Exception $e) {
-                var_dump($e);
                 throw new Exception("Error Opening Database. Does it exist?", 1);
             }
         }
