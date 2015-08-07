@@ -5,7 +5,7 @@ Class DatabaseConnection {
     private $db, $dbpath;
 
     function __construct() {
-        $this->dbpath = dirname(__FILE__) . '/' . self::DBNAME;
+        $this->dbpath = dirname( dirname(__FILE__) ) . '/' . self::DBNAME;
         $this->db = new Database( $this->dbpath );
         $this->openDataBase();
     }
