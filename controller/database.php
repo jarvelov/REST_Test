@@ -31,7 +31,7 @@ if(class_exists('SQLite3')) {
             $table_stmt = $this->db->prepare($table_query);
             $table_stmt->execute();
 
-            $data_query = 'INSERT INTO users (id, username, name, password, email) VALUES (
+            $data_query = 'INSERT INTO users (username, name, password, email) VALUES (
                     "JohnS","John Simonson","SuperS3cure","john.simonson@example.com",
                     "AliceC","Alice Cooper","SpookyFella97","alice.cooper@example.com",
                     "StevenT","Steven Tyler","RockOn4Lyfe","steven.tyler@example.com"
