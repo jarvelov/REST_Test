@@ -57,9 +57,9 @@ Class Model {
                         </div>
                         <div class="form-container" ng-repeat="form in Forms">
                             <form id="{{form.name}}" ng-hide="form.functions.isHidden()" ng-submit="sendPost()">
-                                <div class="form-group col-xs-12" ng-repeat="(key, input) in form.inputs">
+                                <div class="form-group col-xs-12" ng-repeat="input in form.inputs">
                                     <label for="{{input.label}}">{{input.label}}</label>
-                                    <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-model="key" ng-pattern="input.pattern" name="{{input.label}}" />
+                                    <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-model="input.slug" ng-pattern="input.pattern" name="{{input.label}}" />
                                 </div><!-- /.form-group -->
                                 <div id="action-button" class="col-xs-12">
                                     <input type="submit" class="btn btn-block btn-primary" value="{{form.action}}" />
