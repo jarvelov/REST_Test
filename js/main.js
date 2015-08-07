@@ -134,11 +134,11 @@ REST.controller(
             $scope.progressPercentage = 30;
 
             parameters = "";
-            angular.forEach( $scope.inputs, function(input) ) {
+            angular.forEach( $scope.inputs, function(input) {
                 for(var key in input) {
                     parameters += input[key] + '/';
                 }
-            }
+            });
 
             console.log(parameters);
 /*
