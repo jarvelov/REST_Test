@@ -96,7 +96,6 @@ Class RestController {
 
         try {
             $this->connection = new DatabaseConnection();
-            $this->connection->openDatabase();
         } catch(Exception $e) {
             $this->errors[] = $e->getMessage();
         }
