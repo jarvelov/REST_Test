@@ -133,16 +133,18 @@ REST.controller(
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
-            parameters = "";
+            var parameters = "";
             angular.forEach( $scope.inputs, function(input) {
                 parameters += input + '/';
             });
 
-            console.log($scope.inputs, parameters);
-/*
+            var fullUrl = $scope.url + parameters;
+
+            console.log(fullUrl);
+
             $http({
               method  : 'POST',
-              url     : $scope.url + parameters
+              url     : fullUrl
              })
               .success(function(data) {
                   $scope.progressPercentage = 60;
@@ -164,7 +166,6 @@ REST.controller(
                       $scope.hideResult = false;
                   }, 500);
               });
-              */
         }
 
     }
