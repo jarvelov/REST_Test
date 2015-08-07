@@ -26,7 +26,7 @@ Class Model {
                         <div id="errors" class="col-xs-12">
                             <?php
                                 foreach($this->errors as $error) {
-                                    echo '<div id="error" class="alert alert-danger">' . $error . '</div>';
+                                    echo '<div id="error" class="alert alert-danger"><strong>Error!</strong>' . $error . '</div>';
                                 }
                             ?>
                         </div>
@@ -52,15 +52,15 @@ Class Model {
                             <div class="alert alert-info" ng-hide="hideInfo"><span class="glyphicon glyphicon-exclamation-sign"></span> Click any of the buttons up top to continue.</div>
                         </div>
                         <div class="form-container" ng-repeat="form in Forms">
-                            <form id="{{form.name}}" ng-hide="form.functions.isHidden()">
+                            <form id="{{form.name}}" ng-hide="form.functions.isHidden()" ng-submit="sendPost()">
                                 <div class="form-group col-xs-12" ng-repeat="input in form.inputs">
                                     <label for="{{input.label}}">{{input.label}}</label>
                                     <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
                                 </div><!-- /.form-group -->
+                                <div id="action-button" class="col-xs-12">
+                                    <button class="btn btn-block btn-primary">{{form.action}}</button>
+                                </div><!-- /#action-button -->
                             </form><!-- /form -->
-                            <div id="action-button" class="col-xs-12" ng-hide="form.functions.isHidden()">
-                                <button class="btn btn-block btn-primary">{{form.action}}</button>
-                            </div><!-- /#action-button -->
                         </div>
                     </div><!-- /#parameter-container -->
 

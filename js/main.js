@@ -11,6 +11,7 @@ REST.controller(
             AddUser:{ //Form to add a user
                 name:"add_user",
                 action:"Add User!",
+                url:'/add_user/',
                 hide:true,
                 inputs:{
                     name:{
@@ -42,6 +43,7 @@ REST.controller(
             GetUser:{ //Form to get a user by username
                 name:"get_user",
                 action:"Get User!",
+                url:'/get_user/',
                 hide:true,
                 inputs:{
                     username:{
@@ -59,6 +61,7 @@ REST.controller(
             GetAllUsers:{ //Form to get all users
                 name:"get_all_users",
                 action:"Get All Users!",
+                url:'/get_all_users/',
                 hide:true,
                 functions:{
                     isHidden:function() {
@@ -86,10 +89,19 @@ REST.controller(
         $scope.reset = function() {
             angular.forEach($scope.Forms,function(form){
                 form.hide = true; //Hide all Forms again to make sure they don't overlap each other
-            })
+            });
 
             $scope.hideInfo = true;
             $scope.hideProgress = true;
         }
+
+        $scope.sendPost = function() {
+            $scope.data = 'test';
+            var data = JSON.stringify( {data: $scope.data} );
+            $http.post($scope.url, data).success(function(data, status) {
+                console.log(data, status);
+            })
+        }
+
     }
 );
