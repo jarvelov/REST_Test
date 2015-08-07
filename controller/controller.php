@@ -57,9 +57,7 @@ Class RestController {
         if ( !class_exists('SQLite3') )
             $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
 
-        if( class_exists('Flight') ) {
-            $this->addRoutes();
-        } else {
+        if( !class_exists('Flight') ) {
             $errors[] = "Error: Flight framework is not initalized!";
         }
 
@@ -99,7 +97,7 @@ Class RestController {
         }
 
         $this->testEnvironment();
-
+        $this->addRoutes();
         $this->start();
     }
 
