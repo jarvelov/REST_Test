@@ -21,7 +21,7 @@ if(class_exists('SQLite3')) {
         }
 
         private function fill() {
-            $table_query = 'CREATE TABLE IF NOT EXIST users (
+            $table_query = 'CREATE TABLE IF NOT EXISTS users (
                 id mediumint(9) AUTO_INCREMENT,
                 username VARCHAR(255),
                 name VARCHAR(255),
