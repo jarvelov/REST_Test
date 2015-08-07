@@ -30,7 +30,7 @@ Class DatabaseConnection {
 
     public function saveUserToDatabase($args) {
         extract($args);
-        $query = 'INSERT INTO users (username, name, password, email) VALUES :username, :name, :password, :email';
+        $query = 'INSERT INTO users (username, name, password, email) VALUES (":username", ":name", ":password", ":email")';
 
         try {
             $stmt = $this->db->prepare($query);
