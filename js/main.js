@@ -65,6 +65,7 @@ REST.controller(
                     inputs:{
                         username:{
                             pattern:"[A-Za-z0-9]{0,10}",
+                            type:"text",
                             label:"Username"
                         }
                     },

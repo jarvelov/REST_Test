@@ -47,10 +47,10 @@ Class Model {
                             <label for="{{input.label}}">{{input.label}}</label>
                             <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
                         </div>
-                        <div class="col-xs-12">
-                            <button class="btn btn-block btn-primary">{{form.action}}</button>
-                        </div>
                     </form>
+                    <div class="col-xs-12">
+                        <button class="btn btn-block btn-primary">{{form.action}}</button>
+                    </div>
                 </div>
             </div><!-- /#parameter-container -->
 
