@@ -42,12 +42,14 @@ Class Model {
                     <h3>Required parameters</h3>
                 </div>
                 <div class="form-container" ng-repeat="form in Forms">
-                    <form id="{{form.name}}" ng-hide="{{form.hide}}">
-                        <div class="form-group col-xs-12" ng-repeat="input in form.inputs" ng-class="{ 'has-error' : input.$invalid }">
+                    <form id="{{form.name}}" ng-hide="form.functions.isHidden()">
+                        <div class="form-group col-xs-12" ng-repeat="input in form.inputs">
                             <label for="{{input.label}}">{{input.label}}</label>
                             <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
                         </div>
-                        <button class="btn btn-block btn-primary">{{form.action}}</button>
+                        <div class="col-xs-12">
+                            <button class="btn btn-block btn-primary">{{form.action}}</button>
+                        </div>
                     </form>
                 </div>
             </div><!-- /#parameter-container -->

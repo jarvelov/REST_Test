@@ -7,7 +7,7 @@ REST.controller(
             $scope.reset();
 
             $scope.hideParameter = false;
-            $scope.Forms.AddUser.hide = false;
+            $scope.Forms.AddUser.hide = !$scope.Forms.AddUser.hide;
         }
 
         $scope.formGetUser = function() {
@@ -50,6 +50,11 @@ REST.controller(
                             type:"email",
                             label:"E-mail"
                         }
+                    },
+                    functions:{
+                        isHidden:function() {
+                            return $scope.Forms.AddUser.hide;
+                        }
                     }
                 },
                 GetUser:{
@@ -60,6 +65,11 @@ REST.controller(
                         username:{
                             pattern:"[A-Za-z0-9]{0,10}",
                             label:"Username"
+                        }
+                    },
+                    functions:{
+                        isHidden:function() {
+                            return $scope.Forms.GetUser.hide;
                         }
                     }
                 }
