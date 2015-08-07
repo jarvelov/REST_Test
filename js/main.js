@@ -14,12 +14,13 @@ REST.controller(
             $scope.reset();
 
             $scope.hideParameter = false;
-            $scope.Forms.GetUser.hide = false;
+            $scope.Forms.GetUser.hide = !$scope.Forms.GetUser.hide;
         }
 
         $scope.getAllUsers = function() {
             $scope.reset();
-            $scope.formAction = 'Get all users!';
+
+            $scope.Forms.GetAllUsers.hide = !$scope.Forms.GetAllUsers.hide;
         }
 
         $scope.reset = function() {
@@ -70,6 +71,16 @@ REST.controller(
                     functions:{
                         isHidden:function() {
                             return $scope.Forms.GetUser.hide;
+                        }
+                    }
+                },
+                GetAllUsers:{
+                    name:"get_all_users",
+                    action:"Get All Users!"
+                    hide:true,
+                    functions:{
+                        isHidden:function() {
+                            return $scope.Forms.GetAllUsers.hide;
                         }
                     }
                 }
