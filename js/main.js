@@ -6,12 +6,14 @@ REST.controller(
         $scope.formAddUser = function() {
             $scope.reset();
 
+            $scope.hideInfo = false;
             $scope.Forms.AddUser.hide = !$scope.Forms.AddUser.hide;
         }
 
         $scope.formGetUser = function() {
             $scope.reset();
 
+            $scope.hideInfo = false;
             $scope.Forms.GetUser.hide = !$scope.Forms.GetUser.hide;
         }
 
@@ -85,8 +87,11 @@ REST.controller(
                 }
             };
 
+            $scope.hideInfo = true;
             $scope.hideProgress = true;
         }
+
+        $scope.hideInfo = false; //Will only be shown once
 
         $scope.reset();
     }

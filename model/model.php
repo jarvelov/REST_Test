@@ -40,6 +40,7 @@ Class Model {
             <div id="parameter-container" class="row">
                 <div class="col-xs-12">
                     <h3>Required parameters</h3>
+                    <div class="alert alert-info" ng-hide="hideInfo"><span class="glyphicon glyphicon-exclamation-sign"></span> Click any of the buttons up top to continue</div>
                 </div>
                 <div class="form-container" ng-repeat="form in Forms">
                     <form id="{{form.name}}" ng-hide="form.functions.isHidden()">
