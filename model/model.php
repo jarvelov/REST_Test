@@ -1,8 +1,8 @@
 <?php
 
 Class Model {
-    function __construct() {
-        $this->options = [];
+    function __construct($errors) {
+        $this->errors = $errors;
     }
 }
 
@@ -22,6 +22,14 @@ Class Model {
     </head>
     <body>
         <div class="container" ng-controller="mainController">
+            <div id="error-container" class="row">
+                <div class="col-xs-12">
+                    <?php
+                        foreach($errors as $error) {
+                            echo '<div class="alert alert-danger">' . $error . '</div>';
+                        }
+                    ?>
+            </div><!-- /#error-container -->
             <div id="option-container" class="row" >
                 <div class="col-xs-12">
                     <h3>Options</h3>

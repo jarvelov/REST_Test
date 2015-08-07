@@ -69,12 +69,22 @@ Class RestController {
     /** Helper Classes **/
 
     public function init() {
-        $model = new Model();
+        $errors = $this->testEnvironment();
+        $model = new Model($errors);
     }
 
     //Ready for take off!
     public function start() {
         Flight::start();
+    }
+
+    //Check if environment is functional
+    public function testEnvironment() {
+        $errors = array();
+        if ( !class_exists('SQLite3') )
+            $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions!</div> (Ubuntu: apt-get install sqlite php5-sqlite)';
+
+        return $errors;
     }
 
     private function output($message) {
