@@ -20,7 +20,7 @@ Class RestController {
             });
 
             //Get all users
-            Flight::route('/users/get_all_users/@username', function() {
+            Flight::route('/users/get_all_users', function() {
                 $this->getAllUsers();
             });
         } else {
