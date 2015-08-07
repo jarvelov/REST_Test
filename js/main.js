@@ -93,6 +93,7 @@ REST.controller(
 
             $scope.hideInfo = true;
             $scope.hideProgress = true;
+            $scope.hideResult = true;
 
             $scope.result = false;
             $scope.progressPercentage = 0;
@@ -108,12 +109,13 @@ REST.controller(
              })
               .success(function(data) {
                   $scope.progressPercentage = 60;
-                  $scope.result = data['result'];
+                  $scope.result = $.parseJSON( data['result'] );
               })
               .finally(function(data) {
                   $scope.progressPercentage = 100;
                   $timeout(function() {
                       $scope.hideProgress = true;
+                      $scope.hideResult = false;
                   }, 500);
               });
         }

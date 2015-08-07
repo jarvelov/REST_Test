@@ -79,6 +79,20 @@ Class Model {
                                 </div><!-- /#progressbar -->
                             </div><!-- /.progress -->
                         </div><!-- /#progress-container -->
+                        <div class="col-xs-12">
+                            <table class="table table-striped table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th ng-repeat="(key, value) in result[0]">{{key}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="(key, value) in result[0]">
+                                        <td>{{value}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div><!-- /.row -->
                 </div><!-- /.container -->
             </body>
