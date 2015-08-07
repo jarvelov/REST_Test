@@ -25,7 +25,7 @@ Class Model {
             <div id="error-container" class="row">
                 <div class="col-xs-12">
                     <?php
-                        foreach($errors as $error) {
+                        foreach($this->errors as $error) {
                             echo '<div class="alert alert-danger">' . $error . '</div>';
                         }
                     ?>
