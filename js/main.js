@@ -100,27 +100,22 @@ REST.controller(
 
         $scope.sendPost = function() {
             $scope.hideProgress = false;
-            $scope.progressPercentage = 20;
+            $scope.progressPercentage = 30;
 
-            $.post( "users/get_user/JohnS", function() {
-              alert( "success" );
-            })
-            .done(function() {
-                alert( "second success" );
-            });
-/*
-            jQuery.post( "users/get_user/JohnS", function() {
-                $scope.progressPercentage = 40;
-            }).done(function(data) {
-                $scope.progressPercentage = 60;
-                $scope.result = jQuery.parseJSON(data);
-            }).always(function(){
-                $scope.progressPercentage = 100;
-                setTimeout(function() {
-                    $scope.hideProgress = true;
-                }, 300);
-            });
-            */
+            $http({
+              method  : 'POST',
+              url     : 'users/get_user/JohnS'
+             })
+              .success(function(data) {
+                  $scope.progressPercentage = 60;
+                  $scope.result = data['result'];
+              })
+              .finally(function(data) {
+                  $scope.progressPercentage = 100;
+                  setTimeout(function() {
+                      $scope.hideProgress = true;
+                  }, 300);
+              });
         }
 
     }
