@@ -2,7 +2,6 @@
 
 Class Model {
     function __construct($errors) {
-        var_dump($errors);
         $this->errors = $errors;
         $this->init();
     }
