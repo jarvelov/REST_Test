@@ -96,11 +96,9 @@ REST.controller(
         }
 
         $scope.sendPost = function() {
-            $scope.data = 'test';
-            $scope.url = '/users/get_user/JohnS';
-            $http.post($scope.url).success(function(data, status) {
-                console.log(data, status);
-            })
+            jQuery.post( "users/get_user/JohnS", function( data ) {
+              console.log(data);
+            });
         }
 
     }
