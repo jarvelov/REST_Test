@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
 Class DatabaseConnection {
     const DBNAME = 'database.db';
     private $db, $dbpath;
@@ -14,13 +18,15 @@ Class DatabaseConnection {
         try {
             $this->db->open();
         } catch(Exception $e) { //Database does not seem to exist, try to create it
-            try {
+            var_dump($e);
+            break;
+
+            /*try {
                 $this->db->create();
                 $this->db->open();
             } catch(Exception $e) {
-                var_dump($e);
                 var_dump('General error. Please check permissions'); //make this prettier
-            }
+            }*/
         }
     }
 
