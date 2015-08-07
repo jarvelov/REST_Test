@@ -133,7 +133,7 @@ REST.controller(
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
-            console.log($scope.inputs);
+            console.log($scope.inputs, $scope.url);
 /*
             $http({
               method  : 'POST',
