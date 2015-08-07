@@ -6,17 +6,20 @@ error_reporting(-1);
 
 Class DatabaseConnection {
     const DBPATH = 'database.db';
-    private $db;
+    private $db, $dbpath;
 
     function __construct() {
         $this->dbpath = dirname( dirname(__FILE__) ) . '/' . self::DBPATH;
         $this->db = new Database( $this->dbpath );
     }
 
-    public function openDataBase() {
+    private function openDataBase() {
         try {
+            if( !file_exists( $this->dbpath ) ) {
+                $this->db->createDatabase(); //This is probably the first time this is running, create the database with sample data
+            }
             $this->db->openDatabase();
-        } catch(Exception $e) { //Database does not seem to exist
+        } catch(Exception $e) { //Database does not seem to be able to be opened
             throw new Exception ('Database could not be opened. Make sure you\'ve run "setup.php"!', 1);
         }
     }

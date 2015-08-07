@@ -96,12 +96,7 @@ Class RestController {
 
         try {
             $this->connection = new DatabaseConnection();
-                if( file_exists ( $this->connection->dbpath )) {
-                    $this->connection->openDatabase();
-                } else {
-                    $this->connection->db->createDatabase();
-                    $this->connection->openDatabase();
-                }
+            $this->connection->openDatabase();
         } catch(Exception $e) {
             $this->errors[] = $e->getMessage();
         }
