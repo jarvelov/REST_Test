@@ -92,13 +92,13 @@ Class RestController {
 
     //Init app
     public function init() {
-        $this->testEnvironment();
-
         try {
             $this->connection = new DatabaseConnection();
         } catch(Exception $e) {
             $this->errors[] = $e->getMessage();
         }
+
+        $this->testEnvironment();
 
         $this->start();
     }
