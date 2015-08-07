@@ -91,16 +91,19 @@ REST.controller(
         $scope.formAddUser = function() {
             $scope.reset();
             $scope.Forms.AddUser.hide = !$scope.Forms.AddUser.hide;
+            $scope.url = $scope.Forms.url;
         }
 
         $scope.formGetUser = function() {
             $scope.reset();
             $scope.Forms.GetUser.hide = !$scope.Forms.GetUser.hide;
+            $scope.url = $scope.Forms.url;
         }
 
         $scope.getAllUsers = function() {
             $scope.reset();
             $scope.Forms.GetAllUsers.hide = !$scope.Forms.GetAllUsers.hide;
+            $scope.url = $scope.Forms.url;
         }
 
         $scope.reset = function() {
@@ -116,6 +119,8 @@ REST.controller(
             $scope.progressPercentage = 0;
 
             $scope.inputs = {};
+            $scope.url = $scope.Forms.url;
+
             $scope.action = {
                 class:'danger',
                 hide:true,
