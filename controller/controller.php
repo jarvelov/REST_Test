@@ -8,6 +8,7 @@ Class RestController {
 
     function __construct() {
         $this->init();
+        $this->errors = array();
     }
 
     /** REST callbacks **/
@@ -26,7 +27,6 @@ Class RestController {
 
     public function getAllUsers() {
         $result = $this->getAllDatabaseUsers();
-        var_dump($result);
 
         if( $result['success'] === true ) {
             $message = $result['message'];
