@@ -97,6 +97,7 @@ REST.controller(
 
         $scope.sendPost = function() {
             $scope.data = 'test';
+            $scope.url = '/get_user/';
             var data = JSON.stringify( {data: $scope.data} );
             $http.post($scope.url, data).success(function(data, status) {
                 console.log(data, status);
