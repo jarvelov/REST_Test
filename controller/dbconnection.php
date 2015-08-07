@@ -11,10 +11,9 @@ Class DatabaseConnection {
     function __construct() {
         $this->dbpath = dirname( dirname(__FILE__) ) . '/' . self::DBPATH;
         $this->db = new Database( $this->dbpath );
-        $this->openDataBase();
     }
 
-    private function openDataBase() {
+    public function openDataBase() {
         try {
             $this->db->openDatabase();
         } catch(Exception $e) { //Database does not seem to exist

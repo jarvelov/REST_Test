@@ -63,7 +63,9 @@ Class RestController {
             $errors[] = "Error: Flight framework is not initalized!";
         }
 
-        $this->errors = $errors;
+        foreach ($errors as $error) {
+            $this->errors[] = $error;
+        }
     }
 
     //Check result and return an associative array
@@ -94,6 +96,12 @@ Class RestController {
 
         try {
             $this->connection = new DatabaseConnection();
+                if( file_exists ( $this->connection->dbpath )) {
+                    $this->connection->openDatabase();
+                } else {
+                    $this->connection->db->createDatabase();
+                    $this->connection->openDatabase();
+                }
         } catch(Exception $e) {
             $this->errors[] = $e->getMessage();
         }
