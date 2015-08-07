@@ -18,6 +18,7 @@ Class DatabaseConnection {
                 $this->db->create();
                 $this->db->open();
             } catch(Exception $e) {
+                var_dump($e);
                 var_dump('General error. Please check permissions'); //make this prettier
             }
         }
