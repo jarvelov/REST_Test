@@ -106,7 +106,7 @@ Class RestController {
             $errors[] = "Error: Flight framework is not initalized!";
         }
 
-        $this->$errors = $errors;
+        $this->errors = $errors;
     }
 
     private function output($message) {
