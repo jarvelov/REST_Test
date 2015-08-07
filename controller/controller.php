@@ -116,7 +116,7 @@ Class RestController {
     private function addDatabaseUser($name, $username, $password, $email) {
         try {
             $dbConn = new DatabaseConnection();
-            $result = $dbConn->saveToDatabase( array(
+            $result = $dbConn->saveUserToDatabase( array(
                 'name' => $name,
                 'username' => $username,
                 'password' => $password,

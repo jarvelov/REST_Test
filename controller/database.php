@@ -9,18 +9,20 @@ if(class_exists('SQLite3')) {
 
         public function open() {
             try {
-                $this->db = $this->open( $this->database );
+                $this->db = $this->open( $this->dbpath );
             } catch(Exception $e) {
+                var_dump($e);
                 throw new Exception("Error Opening Database. Does it exist?", 1);
             }
         }
 
         public function create() {
             $this->db = new SQLite3( $this->dbpath );
-            $this->fill();
+            $this->createTable();
+            $this->insertSampleData();
         }
 
-        private function fill() {
+        private function createTable() {
             $table_query = 'CREATE TABLE IF NOT EXISTS users (
                 username VARCHAR(255),
                 name VARCHAR(255),
@@ -30,16 +32,21 @@ if(class_exists('SQLite3')) {
 
             $table_stmt = $this->db->prepare($table_query);
             $table_stmt->execute();
+        }
 
-            $data_query = 'INSERT INTO users (username, name, password, email) VALUES (
-                    "JohnS","John Simonson","SuperS3cure","john.simonson@example.com",
-                    "AliceC","Alice Cooper","SpookyFella97","alice.cooper@example.com",
-                    "StevenT","Steven Tyler","RockOn4Lyfe","steven.tyler@example.com"
-                )';
+        private function insertSampleData() {
+            $rows = array(
+                '"JohnS","John Simonson","SuperS3cure","john.simonson@example.com"',
+                '"AliceC","Alice Cooper","SpookyFella97","alice.cooper@example.com"',
+                '"StevenT","Steven Tyler","RockOn4Lyfe","steven.tyler@example.com"'
+            );
 
-            $data_stmt = $this->db->prepare($data_query);
-            $result = $data_stmt->execute();
-            var_dump($result);
+            $results = array();
+            foreach($rows as $row) {
+                $insert_query = 'INSERT INTO users (username, name, password, email) VALUES (' . $row . ' );';
+                $insert_stmt = $this->db->prepare($insert_query);
+                $results[] = $insert_stmt->execute();
+            }
         }
     }
 }
