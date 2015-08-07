@@ -26,6 +26,7 @@ Class RestController {
 
     public function getAllUsers() {
         $result = $this->getAllDatabaseUsers();
+        var_dump($result);
 
         if( $result['success'] === true ) {
             $message = $result['message'];
