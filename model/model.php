@@ -47,11 +47,11 @@ Class Model {
                         <div class="form-group col-xs-12" ng-repeat="input in form.inputs">
                             <label for="{{input.label}}">{{input.label}}</label>
                             <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
-                        </div>
-                    </form>
-                    <div class="col-xs-12" ng-hide="form.functions.isHidden()">
+                        </div><!-- /.form-group -->
+                    </form><!-- /form -->
+                    <div id="action-button" class="col-xs-12" ng-hide="form.functions.isHidden()">
                         <button class="btn btn-block btn-primary">{{form.action}}</button>
-                    </div>
+                    </div><!-- /#action-button -->
                 </div>
             </div><!-- /#parameter-container -->
 

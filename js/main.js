@@ -85,7 +85,7 @@ REST.controller(
 
         $scope.reset = function() {
             angular.forEach($scope.Forms,function(form){
-                form.hide = true;
+                form.hide = true; //Hide all Forms again to make sure they don't overlap each other
             })
 
             $scope.hideInfo = true;
