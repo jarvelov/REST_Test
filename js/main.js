@@ -115,6 +115,7 @@ REST.controller(
             $scope.result = false;
             $scope.progressPercentage = 0;
 
+            $scope.inputs = { fields: [] };
             $scope.action = {
                 class:'danger',
                 hide:true,
@@ -127,7 +128,7 @@ REST.controller(
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
-            console.log($scope);
+            console.log($scope.inputs);
 /*
             $http({
               method  : 'POST',
