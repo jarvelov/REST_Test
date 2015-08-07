@@ -52,6 +52,9 @@ Class RestController {
 
     public function init() {
         $errors = $this->testEnvironment();
+    }
+
+    public function model() {
         $model = new Model($errors);
     }
 
@@ -69,7 +72,7 @@ Class RestController {
         if( class_exists('Flight') ) {
             //Hook up all REST requests to functions
             Flight::route('/', function() {
-                
+                $this->model();
             });
 
             //Add a new user
