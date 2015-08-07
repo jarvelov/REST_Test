@@ -57,7 +57,7 @@ Class Model {
                         </div>
                         <div class="form-container" ng-repeat="form in Forms">
                             <form id="{{form.name}}" ng-hide="form.functions.isHidden()" ng-submit="sendPost()">
-                                <div class="form-group col-xs-12" ng-repeat="input in form.inputs track by $index">
+                                <div class="form-group col-xs-12" ng-repeat="input in form.inputs">
                                     <label for="{{input.label}}">{{input.label}}</label>
                                     <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-model="inputs[input.slug]" ng-pattern="input.pattern" name="{{input.label}}" />
                                 </div><!-- /.form-group -->
