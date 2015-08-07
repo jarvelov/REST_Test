@@ -68,6 +68,9 @@ Class RestController {
 
         if( class_exists('Flight') ) {
             //Hook up all REST requests to functions
+            Flight::route('/', function() {
+                
+            });
 
             //Add a new user
             Flight::route('/users/add_user/@name/@username/@password/@email', function( $name, $username, $password, $email ) {
