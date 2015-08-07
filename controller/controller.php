@@ -51,11 +51,11 @@ Class RestController {
     /** Helper Classes **/
 
     public function init() {
-        $errors = $this->testEnvironment();
+        $this->errors = $this->testEnvironment();
     }
 
     public function model() {
-        $model = new Model($errors);
+        $model = new Model($this->errors);
     }
 
     //Ready for take off!
