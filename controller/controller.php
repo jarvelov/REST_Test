@@ -82,7 +82,7 @@ Class RestController {
     public function testEnvironment() {
         $errors = array();
         if ( !class_exists('SQLite3') )
-            $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions!</div> (Ubuntu: apt-get install sqlite php5-sqlite)';
+            $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
 
         return $errors;
     }
