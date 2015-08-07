@@ -46,7 +46,6 @@ Class Model {
                         <div class="form-group col-xs-12" ng-repeat="input in form.inputs" ng-class="{ 'has-error' : input.$invalid }">
                             <label for="{{input.label}}">{{input.label}}</label>
                             <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
-                            <span class="alert alert-danger" ng-show="input.$dirty && input.$invalid">{{input.errorMessage}}</span>
                         </div>
                         <button class="btn btn-block btn-primary">{{form.action}}</button>
                     </form>

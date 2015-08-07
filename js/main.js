@@ -33,26 +33,22 @@ REST.controller(
                     inputs:{
                         name:{
                             type:"text",
-                            label:"Name",
-                            errorMessage:""
+                            label:"Name"
                         },
                         username:{
                             pattern:"[A-Za-z0-9]{0,10}",
                             type:"text",
-                            label:"Username",
-                            errorMessage:"Username can only consist of letters and digits and must be less than 10 characters!"
+                            label:"Username"
                         },
                         password:{
                             pattern:"[A-Za-z0-9]",
                             type:"password",
-                            label:"Password",
-                            errorMessage:"Password can only consist of letters and digits!"
+                            label:"Password"
                         },
                         email:{
                             pattern:"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}",
                             type:"email",
-                            label:"E-mail",
-                            errorMessage:"Invalid format of E-mail adress!"
+                            label:"E-mail"
                         }
                     }
                 },
