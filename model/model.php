@@ -56,7 +56,7 @@ Class Model {
                             <div class="alert alert-info" ng-hide="hideInfo"><span class="glyphicon glyphicon-exclamation-sign"></span> Click any of the buttons up top to continue.</div>
                         </div>
                         <div class="form-container" ng-repeat="form in Forms">
-                            <form id="{{form.name}}" ng-hide="form.functions.isHidden()" ng-submit="sendPost()">
+                            <form id="{{form.name}}" ng-hide="form.functions.isHidden()" ng-submit="sendPost()"  action="{{form.url}}">
                                 <div class="form-group col-xs-12" ng-repeat="input in form.inputs">
                                     <label for="{{input.label}}">{{input.label}}</label>
                                     <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-model="inputs[input.slug]" ng-pattern="input.pattern" name="{{input.label}}" />
