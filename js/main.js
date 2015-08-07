@@ -76,7 +76,7 @@ REST.controller(
                 },
                 GetAllUsers:{
                     name:"get_all_users",
-                    action:"Get All Users!"
+                    action:"Get All Users!",
                     hide:true,
                     functions:{
                         isHidden:function() {
