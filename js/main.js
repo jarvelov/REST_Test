@@ -118,7 +118,7 @@ REST.controller(
             }
         }
 
-        $scope.sendPost = function() {
+        $scope.sendPost = function(test) {
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
