@@ -93,11 +93,24 @@ REST.controller(
 
             $scope.hideInfo = true;
             $scope.hideProgress = true;
+
+            $scope.result = false;
+            $scope.progressPercentage = 0;
         }
 
         $scope.sendPost = function() {
-            jQuery.post( "users/get_user/JohnS", function( data ) {
-              console.log(data);
+            $scope.hideProgress = false;
+            $scope.progressPercentage = 20;
+            jQuery.post( "users/get_user/JohnS", function() {
+                $scope.progressPercentage = 40;
+            }).done(function(data) {
+                $scope.progressPercentage = 60;
+                $scope.result = $.parseJSON(data);
+            }).always(function(){
+                $scope.progressPercentage = 100;
+                setTimeout(function() {
+                    $scope.hideProgress = true;
+                }, 300);
             });
         }
 

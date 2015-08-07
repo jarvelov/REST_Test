@@ -75,7 +75,7 @@ Class Model {
                         </div><!-- /#result-title -->
                         <div id="progress-container" class="col-xs-12" ng-hide="hideProgress">
                             <div class="progress">
-                                <div id="progressbar" class="progress-bar" role="progressbar">
+                                <div id="progressbar" class="progress-bar" role="progressbar" ng-style="{width : ( progressPercentage + '%' ) }">
                                 </div><!-- /#progressbar -->
                             </div><!-- /.progress -->
                         </div><!-- /#progress-container -->
