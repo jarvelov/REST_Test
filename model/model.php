@@ -87,8 +87,8 @@ Class Model {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="(key, value) in result[0]">
-                                        <td>{{value}}</td>
+                                    <tr ng-repeat="row in result">
+                                        <td ng-repeat="cell in row">{{cell}}</td>
                                     </tr>
                                 </tbody>
                             </table>
