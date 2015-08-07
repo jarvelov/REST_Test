@@ -8,7 +8,6 @@ Class RestController {
 
     function __construct() {
         $this->init();
-        $this->errors = array();
     }
 
     /** REST callbacks **/
@@ -27,6 +26,7 @@ Class RestController {
 
     public function getAllUsers() {
         $result = $this->getAllDatabaseUsers();
+        var_dump($result);
 
         if( $result['success'] === true ) {
             $message = $result['message'];
@@ -57,13 +57,13 @@ Class RestController {
         if ( !class_exists('SQLite3') )
             $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
 
-        if( !class_exists('Flight') ) {
+        if( class_exists('Flight') ) {
+            $this->addRoutes();
+        } else {
             $errors[] = "Error: Flight framework is not initalized!";
         }
 
-        foreach ($errors as $error) {
-            $this->errors[] = $error;
-        }
+        $this->errors = $errors;
     }
 
     //Check result and return an associative array
@@ -90,14 +90,14 @@ Class RestController {
 
     //Init app
     public function init() {
+        $this->testEnvironment();
+
         try {
             $this->connection = new DatabaseConnection();
         } catch(Exception $e) {
             $this->errors[] = $e->getMessage();
         }
 
-        $this->testEnvironment();
-        $this->addRoutes();
         $this->start();
     }
 
