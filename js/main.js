@@ -107,7 +107,7 @@ REST.controller(
         }
 
         $scope.reset = function() {
-            angular.forEach($scope.Forms,function(form){
+            angular.forEach($scope.Forms, function(form){
                 form.hide = true; //Hide all Forms again to make sure they don't overlap each other
             });
 
@@ -133,11 +133,18 @@ REST.controller(
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
-            console.log($scope.inputs, $scope.postURL);
+            parameters = "";
+            angular.forEach( $scope.inputs, function(input) ) {
+                for(var key in input) {
+                    parameters += input[key] + '/';
+                }
+            }
+
+            console.log(parameters);
 /*
             $http({
               method  : 'POST',
-              url     : 'users/get_user/JohnS'
+              url     : $scope.url + parameters
              })
               .success(function(data) {
                   $scope.progressPercentage = 60;
