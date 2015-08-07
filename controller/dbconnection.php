@@ -13,7 +13,7 @@ Class DatabaseConnection {
         $this->db = new Database( $this->dbpath );
     }
 
-    private function openDataBase() {
+    public function openDataBase() {
         try {
             if( !file_exists( $this->dbpath ) ) {
                 $this->db->createDatabase(); //This is probably the first time this is running, create the database with sample data
