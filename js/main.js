@@ -2,7 +2,7 @@ var REST = angular.module("REST", []);
 
 REST.controller(
     "mainController",
-    function($scope, $http) {
+    function($scope, $http, $timeout) {
         $scope.hideInfo = false; //Will only be shown once
         $scope.hideProgress = true; //Hide progress bar initially
 
@@ -112,9 +112,9 @@ REST.controller(
               })
               .finally(function(data) {
                   $scope.progressPercentage = 100;
-                  setTimeout(function() {
+                  $timeout(function() {
                       $scope.hideProgress = true;
-                  }, 300);
+                  }, 500);
               });
         }
 
