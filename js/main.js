@@ -91,8 +91,8 @@ REST.controller(
             $scope.hideProgress = true;
         }
 
-        $scope.hideInfo = false; //Will only be shown once
-
         $scope.reset();
+
+        $scope.hideInfo = false; //Will only be shown once
     }
 );
