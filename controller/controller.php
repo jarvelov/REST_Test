@@ -110,7 +110,7 @@ Class RestController {
         });
 
         //Add a new user
-        Flight::route('/users/add_user/@args', function( $args ) {
+        Flight::route('/users/add_user', function( $args ) {
             var_dump($args);
             //$this->addUser( $name, $username, $password, $email );
         } );
