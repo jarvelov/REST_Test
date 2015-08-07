@@ -31,14 +31,14 @@ REST.controller(
                     },
                     password:{
                         pattern:"[A-Za-z0-9]",
-                        slug:"pw",
-                        type:"password",
+                        slug:"password",
+                        type:"text",
                         label:"Password"
                     },
                     email:{
-                        pattern:"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}",
+                        pattern:"",//"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}",
                         slug:"em",
-                        type:"email",
+                        type:"text",
                         label:"E-mail"
                     }
                 },
