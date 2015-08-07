@@ -134,6 +134,7 @@ Class RestController {
             ) );
         } catch(Exception $e) {
             //TODO handle error
+            var_dump($e);
             $result = false;
         }
 
@@ -148,6 +149,7 @@ Class RestController {
             ) );
         } catch(Exception $e) {
             //TODO handle error
+            var_dump($e);
             $result = false;
         }
 
@@ -160,6 +162,7 @@ Class RestController {
             $result = $dbConn->getAllUsersFromDatabase();
         } catch(Exception $e) {
             //TODO handle error
+            var_dump($e);
             $result = false;
         }
 
