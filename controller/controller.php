@@ -51,6 +51,44 @@ Class RestController {
 
     /** Helper Classes **/
 
+    //Check if environment is functional
+    public function testEnvironment() {
+        $errors = array();
+        if ( !class_exists('SQLite3') )
+            $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
+
+        if( class_exists('Flight') ) {
+            $this->addRoutes();
+        } else {
+            $errors[] = "Error: Flight framework is not initalized!";
+        }
+
+        $this->errors = $errors;
+    }
+
+    //Check result and return an associative array
+    private function handleDatabaseResult($result) {
+        if($result) {
+            $return = array(
+                'success' => true,
+                'message' => $result
+            );
+        } else {
+            $return = array(
+                'success' => false
+            );
+        }
+
+        return $return;
+    }
+
+    //Echo string in JSON
+    private function output($string) {
+        $json =  json_encode( array( 'message' => $string ), true );
+        echo $json;
+    }
+
+    //Init app
     public function init() {
         $this->testEnvironment();
 
@@ -63,14 +101,12 @@ Class RestController {
         $this->start();
     }
 
-    public function model() {
-        $model = new Model($this->errors);
-    }
+    /* Flight Framework functions */
 
     public function addRoutes() {
         //Hook up all REST requests to functions
         Flight::route('/', function() {
-            $this->model();
+            new Model($this->errors);
         });
 
         //Add a new user
@@ -92,41 +128,6 @@ Class RestController {
     //Ready for take off!
     public function start() {
         Flight::start();
-    }
-
-    //Check if environment is functional
-    public function testEnvironment() {
-        $errors = array();
-        if ( !class_exists('SQLite3') )
-            $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
-
-        if( class_exists('Flight') ) {
-            $this->addRoutes();
-        } else {
-            $errors[] = "Error: Flight framework is not initalized!";
-        }
-
-        $this->errors = $errors;
-    }
-
-    private function output($message) {
-        $json =  json_encode( array( 'message' => $message ), true );
-        echo $json;
-    }
-
-    private function handleDatabaseResult($result) {
-        if($result) {
-            $return = array(
-                'success' => true,
-                'message' => $result
-            );
-        } else {
-            $return = array(
-                'success' => false
-            );
-        }
-
-        return $return;
     }
 
     /** Database Communication **/
