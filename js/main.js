@@ -91,19 +91,19 @@ REST.controller(
         $scope.formAddUser = function() {
             $scope.reset();
             $scope.Forms.AddUser.hide = !$scope.Forms.AddUser.hide;
-            $scope.postURL = $scope.Forms.url;
+            $scope.postURL = $scope.Forms.AddUser.url;
         }
 
         $scope.formGetUser = function() {
             $scope.reset();
             $scope.Forms.GetUser.hide = !$scope.Forms.GetUser.hide;
-            $scope.postURL = $scope.Forms.url;
+            $scope.postURL = $scope.Forms.GetUser.url;
         }
 
         $scope.getAllUsers = function() {
             $scope.reset();
             $scope.Forms.GetAllUsers.hide = !$scope.Forms.GetAllUsers.hide;
-            $scope.postURL = $scope.Forms.url;
+            $scope.postURL = $scope.Forms.GetAllUsers.url;
         }
 
         $scope.reset = function() {
