@@ -42,7 +42,7 @@ Class RestController {
         if( $result['success'] === true ) {
             $message = $result['message'];
         } else {
-            $message = 'Error: Unable to retrieve a list of all users!';
+            $message = 'Error: Unable to retrieve specified user!';
         }
 
         $this->output($message);
