@@ -82,7 +82,7 @@ Class Model {
                         <div class="col-xs-12">
                             <table class="table table-striped table-hover table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr style="text-transform:uppercase">
                                         <th ng-repeat="(key, value) in result[0]">{{key}}</th>
                                     </tr>
                                 </thead>

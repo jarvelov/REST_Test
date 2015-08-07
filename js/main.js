@@ -110,7 +110,6 @@ REST.controller(
               .success(function(data) {
                   $scope.progressPercentage = 60;
                   $scope.result = data['result'];
-                  console.log(data);
               })
               .finally(function(data) {
                   $scope.progressPercentage = 100;
