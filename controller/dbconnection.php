@@ -6,7 +6,7 @@ error_reporting(-1);
 
 Class DatabaseConnection {
     const DBPATH = 'database.db';
-    private $db, $dbpath;
+    private $db;
 
     function __construct() {
         $this->dbpath = dirname( dirname(__FILE__) ) . '/' . self::DBPATH;
