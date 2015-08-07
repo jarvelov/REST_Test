@@ -5,12 +5,6 @@ require 'controller/controller.php';
 require 'model/model.php';
 
 $controller = new RestController();
-
-?>
-
-
-<?php
-
 $controller->start();
 
 ?>

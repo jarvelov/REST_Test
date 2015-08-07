@@ -2,7 +2,7 @@
 
 Class Model {
     function __construct() {
-
+        $this->options = [];
     }
 }
 
@@ -22,7 +22,7 @@ Class Model {
     </head>
     <body>
         <div class="container" ng-controller="mainController">
-            <div id="option-container" class="row">
+            <div id="option-container" class="row" >
                 <div class="col-xs-12">
                     <h3>Options</h3>
                 </div>
@@ -41,37 +41,17 @@ Class Model {
                 <div class="col-xs-12">
                     <h3>Required parameters</h3>
                 </div>
-                <div id="addUserForm" class="col-xs-12" ng-hide="hideAddUserForm">
-                    <div class="form-group">
-                        <label class="control-label" for="add-name">Name</label>
-                        <input id="add-name" ng-model="name" type="text" class="form-control" placeholder="Name" />
-                    </div><!-- /.form-group -->
-                    <div class="form-group">
-                        <label class="control-label" for="add-username">Username</label>
-                        <input id="add-username" ng-model="username" type="text" class="form-control" placeholder="Username" />
-                    </div><!-- /.form-group -->
-                    <div class="form-group">
-                        <label class="control-label" for="add-password">Password</label>
-                        <input id="add-password" ng-model="password" type="password" class="form-control" placeholder="Password" />
-                    </div><!-- /.form-group -->
-                    <div class="form-group">
-                        <label class="control-label" for="add-email">E-mail</label>
-                        <input id="add-email" ng-model="email" type="email" class="form-control" placeholder="E-mail" />
-                    </div><!-- /.form-group -->
-                </div><!-- /#addUserForm -->
-                <div id="getUserForm" class="col-xs-12" ng-hide="hideGetUserForm">
-                    <div class="form-group">
-                        <label class="control-label" for="get-user">Username</label>
-                        <input ng-model="username" type="text" class="form-control" placeholder="Username" />
-                    </div><!-- /.form-group -->
-                </div><!-- /#getUserForm -->
-            </div><!-- /#parameter-container -->
-
-            <div id="action-container" class="row">
-                <div class="col-xs-12">
-                    <button class="btn btn-block btn-primary {{formAction === false ? 'disabled' : '' }} ">{{formAction === false ? "Select action up top!" : formAction}}</button>
+                <div class="form-container" ng-repeat="form in Forms">
+                    <form id="{{form.name}}" ng-hide="{{form.hide}}">
+                        <div class="form-group col-xs-12" ng-repeat="input in form.inputs" ng-class="{ 'has-error' : input.$invalid }">
+                            <label for="{{input.label}}">{{input.label}}</label>
+                            <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
+                            <span class="alert alert-danger" ng-show="input.$dirty && input.$invalid">{{input.errorMessage}}</span>
+                        </div>
+                        <button class="btn btn-block btn-primary">{{form.action}}</button>
+                    </form>
                 </div>
-            </div>
+            </div><!-- /#parameter-container -->
 
             <div id="result-container" class="row">
                 <div id="result-title" class="col-xs-12">
