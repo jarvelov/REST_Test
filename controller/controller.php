@@ -95,8 +95,7 @@ Class RestController {
         try {
             $this->connection = new DatabaseConnection();
         } catch(Exception $e) {
-            var_dump($this->errors);
-            $this->errors[] = $e->getMessage();
+            $this->errors = $e->getMessage();
         }
 
         $this->start();
