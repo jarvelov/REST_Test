@@ -138,7 +138,7 @@ REST.controller(
                 parameters += input + '/';
             });
 
-            console.log($scope.parameters, parameters);
+            console.log($scope.inputs, parameters);
 /*
             $http({
               method  : 'POST',
