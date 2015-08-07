@@ -135,9 +135,7 @@ REST.controller(
 
             parameters = "";
             angular.forEach( $scope.inputs, function(input) {
-                for(var key in input) {
-                    parameters += input[key] + '/';
-                }
+                parameters += input + '/';
             });
 
             console.log(parameters);
