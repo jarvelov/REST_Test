@@ -7,29 +7,7 @@ error_reporting(-1);
 Class RestController {
 
     function __construct() {
-        if( class_exists('Flight') ) {
-            //Hook up all REST requests to functions
-            Flight::route('/', function() {
-                $this->init();
-            });
-
-            //Add a new user
-            Flight::route('/users/add_user/@name/@username/@password/@email', function( $name, $username, $password, $email ) {
-                $this->addUser( $name, $username, $password, $email );
-            } );
-
-            //Get user by username
-            Flight::route('/users/get_user/@username', function( $username ) {
-                $this->getUser( $username );
-            });
-
-            //Get all users
-            Flight::route('/users/get_all_users', function() {
-                $this->getAllUsers();
-            });
-        } else {
-            echo "Error: Flight framework is not initalized!";
-        }
+        $this->init();
     }
 
     /** REST callbacks **/
@@ -87,6 +65,27 @@ Class RestController {
         $errors = array();
         if ( !class_exists('SQLite3') )
             $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
+
+        if( class_exists('Flight') ) {
+            //Hook up all REST requests to functions
+
+            //Add a new user
+            Flight::route('/users/add_user/@name/@username/@password/@email', function( $name, $username, $password, $email ) {
+                $this->addUser( $name, $username, $password, $email );
+            } );
+
+            //Get user by username
+            Flight::route('/users/get_user/@username', function( $username ) {
+                $this->getUser( $username );
+            });
+
+            //Get all users
+            Flight::route('/users/get_all_users', function() {
+                $this->getAllUsers();
+            });
+        } else {
+            $errors[] = "Error: Flight framework is not initalized!";
+        }
 
         return $errors;
     }
