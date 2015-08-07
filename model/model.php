@@ -29,6 +29,7 @@ Class Model {
                             echo '<div class="alert alert-danger">' . $error . '</div>';
                         }
                     ?>
+                </div>
             </div><!-- /#error-container -->
             <div id="option-container" class="row" >
                 <div class="col-xs-12">
