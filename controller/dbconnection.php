@@ -5,11 +5,11 @@ ini_set('display_startup_errors',1);
 error_reporting(-1);
 
 Class DatabaseConnection {
-    const DBNAME = 'database.db';
+    const DBPATH = 'database.db';
     private $db, $dbpath;
 
     function __construct() {
-        $this->dbpath = dirname( dirname(__FILE__) ) . '/' . self::DBNAME;
+        $this->dbpath = dirname( dirname(__FILE__) ) . '/' . self::DBPATH;
         $this->db = new Database( $this->dbpath );
         $this->openDataBase();
     }
@@ -17,14 +17,8 @@ Class DatabaseConnection {
     private function openDataBase() {
         try {
             $this->db->openDatabase();
-        } catch(Exception $e) { //Database does not seem to exist, try to create it
-            try {
-                $this->db->createDatabase();
-                $this->db->openDatabase();
-            } catch(Exception $e) {
-                var_dump($e);
-                var_dump('General error. Please check permissions'); //make this prettier
-            }
+        } catch(Exception $e) { //Database does not seem to exist
+            throw new Exception ('General error. Please check permissions', 1); //make this prettier
         }
     }
 
@@ -41,7 +35,6 @@ Class DatabaseConnection {
 
             $result = $stmt->execute();
         } catch(Exception $e) {
-            var_dump($e);
             throw new Exception("Error saving user to database!", 1);
         }
 
@@ -58,7 +51,6 @@ Class DatabaseConnection {
 
             $result = $stmt->execute();
         } catch (Exception $e) {
-            var_dump($e);
             throw new Exception("Error retrieving user from database!", 1);
         }
 
@@ -72,7 +64,6 @@ Class DatabaseConnection {
             $stmt = $this->db->prepare($query);
             $result = $stmt->execute();
         } catch (Exception $e) {
-            var_dump($e);
             throw new Exception("Error retrieving all users from database!", 1);
         }
 
