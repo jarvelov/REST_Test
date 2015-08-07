@@ -31,7 +31,7 @@ Class Model {
                     ?>
                 </div>
             </div><!-- /#error-container -->
-            <div id="option-container" class="row" >
+            <div id="option-container" class="row topUp" >
                 <div class="col-xs-12">
                     <h3>Options</h3>
                 </div>
@@ -46,7 +46,7 @@ Class Model {
                 </div>
             </div><!-- /#option-container -->
 
-            <div id="parameter-container" class="row">
+            <div id="parameter-container" class="row topUp">
                 <div class="col-xs-12">
                     <h3>Required parameters</h3>
                     <div class="alert alert-info" ng-hide="hideInfo"><span class="glyphicon glyphicon-exclamation-sign"></span> Click any of the buttons up top to continue.</div>
@@ -64,7 +64,7 @@ Class Model {
                 </div>
             </div><!-- /#parameter-container -->
 
-            <div id="result-container" class="row">
+            <div id="result-container" class="row topUp">
                 <div id="result-title" class="col-xs-12">
                     <h3>Results</h3>
                     <div class="alert alert-info" ng-hide="hideInfo"><span class="glyphicon glyphicon-exclamation-sign"></span> Results will show here.</div>
