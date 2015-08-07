@@ -22,6 +22,7 @@ Class DatabaseConnection {
                 $this->db->createDatabase();
                 $this->db->openDatabase();
             } catch(Exception $e) {
+                var_dump($e);
                 var_dump('General error. Please check permissions'); //make this prettier
             }
         }
@@ -40,6 +41,7 @@ Class DatabaseConnection {
 
             $result = $stmt->execute();
         } catch(Exception $e) {
+            var_dump($e);
             throw new Exception("Error saving user to database!", 1);
         }
 
@@ -56,6 +58,7 @@ Class DatabaseConnection {
 
             $result = $stmt->execute();
         } catch (Exception $e) {
+            var_dump($e);
             throw new Exception("Error retrieving user from database!", 1);
         }
 
@@ -69,6 +72,7 @@ Class DatabaseConnection {
             $stmt = $this->db->prepare($query);
             $result = $stmt->execute();
         } catch (Exception $e) {
+            var_dump($e);
             throw new Exception("Error retrieving all users from database!", 1);
         }
 
