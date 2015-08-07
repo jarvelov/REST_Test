@@ -11,7 +11,11 @@ REST.controller(
             AddUser:{ //Form to add a user
                 name:"add_user",
                 action:"Add User!",
-                url:'/add_user/',
+                operation:{
+                    success:'added user',
+                    danger:'add user'
+                },
+                url:'users/add_user/',
                 hide:true,
                 inputs:{
                     name:{
@@ -43,7 +47,11 @@ REST.controller(
             GetUser:{ //Form to get a user by username
                 name:"get_user",
                 action:"Get User!",
-                url:'/get_user/',
+                operation:{
+                    success:'get user',
+                    danger:'get user'
+                },
+                url:'users/get_user/',
                 hide:true,
                 inputs:{
                     username:{
@@ -61,7 +69,11 @@ REST.controller(
             GetAllUsers:{ //Form to get all users
                 name:"get_all_users",
                 action:"Get All Users!",
-                url:'/get_all_users/',
+                operation:{
+                    success:'got all users',
+                    danger:'get all users'
+                },
+                url:'users/get_all_users/',
                 hide:true,
                 functions:{
                     isHidden:function() {
@@ -97,12 +109,21 @@ REST.controller(
 
             $scope.result = false;
             $scope.progressPercentage = 0;
+
+            $scope.action = {
+                class:'danger',
+                hide:true,
+                message:'',
+                operation:''
+            }
         }
 
         $scope.sendPost = function() {
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
+            console.log($scope);
+/*
             $http({
               method  : 'POST',
               url     : 'users/get_user/JohnS'
@@ -110,6 +131,15 @@ REST.controller(
               .success(function(data) {
                   $scope.progressPercentage = 60;
                   $scope.result = data['result'];
+
+                  $scope.action.class = 'success';
+                  $scope.action.hide = false;
+                  $scope.action.message:'Successfully ' + $scope.action.operation;
+              })
+              .failure(function(data) {
+                  $scope.action.class = 'danger';
+                  $scope.action.hide = false;
+                  $scope.action.message:'Failed to ' + $scope.action.operation;
               })
               .finally(function(data) {
                   $scope.progressPercentage = 100;
@@ -118,6 +148,7 @@ REST.controller(
                       $scope.hideResult = false;
                   }, 500);
               });
+              */
         }
 
     }
