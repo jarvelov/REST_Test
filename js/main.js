@@ -6,14 +6,12 @@ REST.controller(
         $scope.formAddUser = function() {
             $scope.reset();
 
-            $scope.hideParameter = false;
             $scope.Forms.AddUser.hide = !$scope.Forms.AddUser.hide;
         }
 
         $scope.formGetUser = function() {
             $scope.reset();
 
-            $scope.hideParameter = false;
             $scope.Forms.GetUser.hide = !$scope.Forms.GetUser.hide;
         }
 
@@ -87,7 +85,6 @@ REST.controller(
                 }
             };
 
-            $scope.hideParameter = true;
             $scope.hideProgress = true;
         }
 

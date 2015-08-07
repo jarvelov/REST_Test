@@ -37,7 +37,7 @@ Class Model {
                 </div>
             </div><!-- /#option-container -->
 
-            <div id="parameter-container" class="row" ng-hide="hideParameter">
+            <div id="parameter-container" class="row">
                 <div class="col-xs-12">
                     <h3>Required parameters</h3>
                 </div>
@@ -48,7 +48,7 @@ Class Model {
                             <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
                         </div>
                     </form>
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" ng-hide="form.functions.isHidden()">
                         <button class="btn btn-block btn-primary">{{form.action}}</button>
                     </div>
                 </div>
