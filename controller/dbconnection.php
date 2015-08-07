@@ -34,13 +34,18 @@ Class DatabaseConnection {
             $stmt->bindValue(':password', $password);
             $stmt->bindValue(':email', $email);
 
-            $result = $stmt->execute();
+            $returned_set = $stmt->execute();
         } catch(Exception $e) {
             var_dump($e);
             throw new Exception("Error saving user to database!", 1);
         }
 
-        return $result;
+        $results = array();
+        while( $row = $returned_set->fetchArray(SQLITE3_ASSOC) ) {
+            $results[] = $row;
+        }
+
+        return $results;
     }
 
     public function getUserFromDatabase($args) {
@@ -51,12 +56,17 @@ Class DatabaseConnection {
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':username', $username);
 
-            $result = $stmt->execute();
+            $returned_set = $stmt->execute();
         } catch (Exception $e) {
             throw new Exception("Error retrieving user from database!", 1);
         }
 
-        return $result;
+        $results = array();
+        while( $row = $returned_set->fetchArray(SQLITE3_ASSOC) ) {
+            $results[] = $row;
+        }
+
+        return $results;
     }
 
     public function getAllUsersFromDatabase() {
@@ -64,12 +74,17 @@ Class DatabaseConnection {
 
         try {
             $stmt = $this->db->prepare($query);
-            $result = $stmt->execute();
+            $returned_set = $stmt->execute();
         } catch (Exception $e) {
             throw new Exception("Error retrieving all users from database!", 1);
         }
 
-        return $result;
+        $results = array();
+        while( $row = $returned_set->fetchArray(SQLITE3_ASSOC) ) {
+            $results[] = $row;
+        }
+
+        return $results;
     }
 }
 
