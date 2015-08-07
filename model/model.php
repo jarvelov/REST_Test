@@ -62,7 +62,7 @@ Class Model {
                                     <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-pattern="input.pattern" name="{{input.label}}" />
                                 </div><!-- /.form-group -->
                                 <div id="action-button" class="col-xs-12">
-                                    <input type="submit" class="btn btn-block btn-primary">{{form.action}}</input>
+                                    <input type="submit" class="btn btn-block btn-primary" value="{{form.action}}" />
                                 </div><!-- /#action-button -->
                             </form><!-- /form -->
                         </div>
