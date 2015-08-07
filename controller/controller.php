@@ -52,10 +52,33 @@ Class RestController {
 
     public function init() {
         $this->errors = $this->testEnvironment();
+        $this->start();
     }
 
     public function model() {
         $model = new Model($this->errors);
+    }
+
+    public function addRoutes() {
+        //Hook up all REST requests to functions
+        Flight::route('/', function() {
+            $this->model();
+        });
+
+        //Add a new user
+        Flight::route('/users/add_user/@name/@username/@password/@email', function( $name, $username, $password, $email ) {
+            $this->addUser( $name, $username, $password, $email );
+        } );
+
+        //Get user by username
+        Flight::route('/users/get_user/@username', function( $username ) {
+            $this->getUser( $username );
+        });
+
+        //Get all users
+        Flight::route('/users/get_all_users', function() {
+            $this->getAllUsers();
+        });
     }
 
     //Ready for take off!
@@ -70,25 +93,7 @@ Class RestController {
             $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
 
         if( class_exists('Flight') ) {
-            //Hook up all REST requests to functions
-            Flight::route('/', function() {
-                $this->model();
-            });
-
-            //Add a new user
-            Flight::route('/users/add_user/@name/@username/@password/@email', function( $name, $username, $password, $email ) {
-                $this->addUser( $name, $username, $password, $email );
-            } );
-
-            //Get user by username
-            Flight::route('/users/get_user/@username', function( $username ) {
-                $this->getUser( $username );
-            });
-
-            //Get all users
-            Flight::route('/users/get_all_users', function() {
-                $this->getAllUsers();
-            });
+            $this->addRoutes();
         } else {
             $errors[] = "Error: Flight framework is not initalized!";
         }
@@ -97,12 +102,8 @@ Class RestController {
     }
 
     private function output($message) {
-        $json =  $this->convertToJSON( $message );
+        $json =  json_encode( $message, true );
         echo $json;
-    }
-
-    private function convertToJSON($string) {
-        return Flight::json($string);
     }
 
     private function handleDatabaseResult($result) {
