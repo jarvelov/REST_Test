@@ -11,7 +11,7 @@ if(class_exists('SQLite3')) {
             $this->dbpath = $database;
         }
 
-        public function open() {
+        public function openDatabase() {
             try {
                 $this->db = $this->open( $this->dbpath );
             } catch(Exception $e) {
@@ -20,7 +20,7 @@ if(class_exists('SQLite3')) {
             }
         }
 
-        public function create() {
+        public function createDatabase() {
             $this->db = new SQLite3( $this->dbpath );
             $this->createTable();
             $this->insertSampleData();

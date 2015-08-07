@@ -16,14 +16,14 @@ Class DatabaseConnection {
 
     private function openDataBase() {
         try {
-            $this->db->open();
+            $this->db->openDatabase();
         } catch(Exception $e) { //Database does not seem to exist, try to create it
             var_dump($e);
             break;
 
             /*try {
-                $this->db->create();
-                $this->db->open();
+                $this->db->createDatabase();
+                $this->db->openDatabase();
             } catch(Exception $e) {
                 var_dump('General error. Please check permissions'); //make this prettier
             }*/
