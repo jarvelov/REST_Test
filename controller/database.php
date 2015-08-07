@@ -26,7 +26,7 @@ if(class_exists('SQLite3')) {
             $this->insertSampleData();
         }
 
-        private function createTable() {
+        public function createTable() {
             $table_query = 'CREATE TABLE IF NOT EXISTS users (
                 username VARCHAR(255),
                 name VARCHAR(255),
@@ -38,7 +38,7 @@ if(class_exists('SQLite3')) {
             $table_stmt->execute();
         }
 
-        private function insertSampleData() {
+        public function insertSampleData() {
             $rows = array(
                 '"JohnS","John Simonson","SuperS3cure","john.simonson@example.com"',
                 '"AliceC","Alice Cooper","SpookyFella97","alice.cooper@example.com"',
