@@ -24,13 +24,13 @@ REST.controller(
                         label:"Name"
                     },
                     username:{
-                        pattern:"[A-Za-z0-9]{0,10}",
+                        pattern:"",
                         slug:"username",
                         type:"text",
                         label:"Username"
                     },
                     password:{
-                        pattern:"[A-Za-z0-9]",
+                        pattern:"",
                         slug:"password",
                         type:"text",
                         label:"Password"
@@ -59,7 +59,7 @@ REST.controller(
                 hide:true,
                 inputs:{
                     username:{
-                        pattern:"[A-Za-z0-9]{0,10}",
+                        pattern:"",
                         slug:"username",
                         type:"text",
                         label:"Username"
