@@ -21,19 +21,22 @@ REST.controller(
                     name:{
                         type:"text",
                         slug:"name",
-                        label:"Name"
+                        label:"Name",
+                        value:""
                     },
                     username:{
                         pattern:"[A-Za-z0-9]{0,10}",
                         slug:"username",
                         type:"text",
-                        label:"Username"
+                        label:"Username",
+                        value:""
                     },
                     password:{
                         pattern:"[A-Za-z0-9]",
                         slug:"password",
                         type:"password",
-                        label:"Password"
+                        label:"Password",
+                        value:""
                     },
                     email:{
                         pattern:"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}",
@@ -62,7 +65,8 @@ REST.controller(
                         pattern:"[A-Za-z0-9]{0,10}",
                         slug:"username",
                         type:"text",
-                        label:"Username"
+                        label:"Username",
+                        value:""
                     }
                 },
                 functions:{
