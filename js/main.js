@@ -119,7 +119,7 @@ REST.controller(
 
             $scope.Forms.GetAllUsers.hide = !$scope.Forms.GetAllUsers.hide;
             $scope.postURL = $scope.Forms.GetAllUsers.url;
-            $scope.requiredInputs = $scope.Forms.AddUser.functions.requiredInputs();
+            $scope.requiredInputs = $scope.Forms.GetAllUsers.functions.requiredInputs();
         }
 
         $scope.reset = function() {
