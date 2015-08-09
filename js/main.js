@@ -144,9 +144,7 @@ REST.controller(
 
             if( Object.keys($scope.inputs).length < $scope.requiredInputs ) {
                 $scope.result = {
-                    'result':{
-                        0:'Invalid request'
-                    },
+                    'result':['Invalid request'],
                     'status':'danger',
                     'show':true,
                     'message':'Not enough data in input.'
@@ -169,20 +167,18 @@ REST.controller(
              .success(function(data) {
                  $scope.progressPercentage = 60;
                  $scope.result = {
-                    'result':{},
+                    'result':[],
                     'status':'success',
                     'show':true
                  }
 
                  for(var key in data['result']) {
-                     $scope.result['result'].key = data['result'][key];
+                     $scope.result['result'].push( data['result'][key] );
                  }
              })
              .error(function(data) {
                  $scope.result = {
-                     'result':{
-                         0:'Server returned an error'
-                     },
+                     'result':['Server returned an error!'],
                      'status':'danger',
                      'show':true
                  }
