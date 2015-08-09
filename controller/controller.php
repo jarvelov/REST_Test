@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);
-
 Class RestController {
 
     function __construct() {
@@ -15,10 +11,12 @@ Class RestController {
     public function addUser($name, $username, $password, $email) {
         $result = $this->addDatabaseUser($name, $username, $password, $email);
 
+        var_dump($result);
+
         if( $result['success'] === true ) {
             $message = $result['message'];
         } else {
-            $message = 'Error: Unable to save user!';
+            $message = array('error' => 'Unable to save user!');
         }
 
         $this->output($message);
@@ -141,7 +139,6 @@ Class RestController {
             ) );
         } catch(Exception $e) {
             //TODO handle error
-            var_dump($e);
             $result = false;
         }
 
@@ -155,7 +152,6 @@ Class RestController {
             ) );
         } catch(Exception $e) {
             //TODO handle error
-            var_dump($e);
             $result = false;
         }
 
@@ -167,7 +163,6 @@ Class RestController {
             $result = $this->connection->getAllUsersFromDatabase();
         } catch(Exception $e) {
             //TODO handle error
-            var_dump($e);
             $result = false;
         }
 
