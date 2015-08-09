@@ -31,8 +31,7 @@ Class DatabaseController {
         }
 
         if(isset($user_exists) AND !empty($user_exists)) {
-            var_dump($user_exists);
-            //throw new Exception("User with that username already exists", 1);
+            throw new Exception("User with that username already exists", 1);
         }
 
         $query = 'INSERT INTO users (username, name, password, email) VALUES (:username, :name, :password, :email)';
