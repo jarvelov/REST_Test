@@ -143,6 +143,15 @@ REST.controller(
             $scope.progressPercentage = 30;
 
             if( Object.keys($scope.inputs).length < $scope.requiredInputs ) {
+                $scope.result:{
+                    'result':{},
+                    'status':'danger',
+                    'show':true,
+                    'message':'Not enough data in input.'
+                }
+
+                return;
+            }
                 var parameters = "";
                 angular.forEach( $scope.inputs, function(input) {
                     parameters += input + '/';
