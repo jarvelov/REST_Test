@@ -37,8 +37,10 @@ Class DatabaseConnection {
             throw new Exception("Error saving user to database!", 1);
         }
 
-        var_dump($stmt);
-        $results = array();
+        //We've got this far, return the user from the database
+        $results = $this->getUserFromDatabase( array(
+            'username' => $username
+        ) );
 
         return $results;
     }
