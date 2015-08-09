@@ -82,13 +82,13 @@ Class Model {
                         <div class="col-xs-12">
                             <div class="alert alert-{{result.status}}" ng-show="result.show">{{action.message}}</div>
                             <table class="table table-striped table-hover table-bordered">
-                                <thead>
+                                <thead><!--
                                     <tr style="text-transform:uppercase">
-                                        <th ng-repeat="(key, value) in result[0]">{{key}}</th>
-                                    </tr>
+                                        <th ng-repeat="(key, value) in result.data">{{key}}</th>
+                                    </tr>-->
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="row in result">
+                                    <tr ng-repeat="row in result.data">
                                         <td ng-repeat="cell in row">{{cell}}</td>
                                     </tr>
                                 </tbody>
