@@ -143,7 +143,7 @@ REST.controller(
             $scope.progressPercentage = 30;
 
             if( Object.keys($scope.inputs).length < $scope.requiredInputs ) {
-                $scope.result:{
+                $scope.result = {
                     'result':{},
                     'status':'danger',
                     'show':true,
