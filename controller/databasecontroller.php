@@ -30,8 +30,10 @@ Class DatabaseController {
             throw new Exception("Error verifying username availability before saving user to database!", 1);
         }
 
-        if(isset($user_exists) AND !empty($user_exists))
-            throw new Exception("User with that username already exists", 1);
+        if(isset($user_exists) AND !empty($user_exists)) {
+            var_dump($user_exists);
+            //throw new Exception("User with that username already exists", 1);
+        }
 
         $query = 'INSERT INTO users (username, name, password, email) VALUES (:username, :name, :password, :email)';
 
