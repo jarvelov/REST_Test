@@ -175,7 +175,7 @@ REST.controller(
                  }
 
                  for(var key in data['result']) {
-                     $scope.result['result'].push( data['result'][key] );
+                     $scope.result['data'].push( data['result'][key] );
                  }
              })
              .error(function(data) {

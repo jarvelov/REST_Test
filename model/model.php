@@ -80,7 +80,7 @@ Class Model {
                             </div><!-- /.progress -->
                         </div><!-- /#progress-container -->
                         <div class="col-xs-12">
-                            <div class="alert alert-{{result.alert}}" ng-show="result.show">{{result.message}}</div>
+                            <div class="alert alert-{{result.alert}}" ng-show="result.show"><span class="glyphicon glyphicon-exclamation-sign"></span> {{result.message}}</div>
                             <table class="table table-striped table-hover table-bordered" ng-if="result.status">
                                 <thead>
                                     <tr style="text-transform:uppercase">
