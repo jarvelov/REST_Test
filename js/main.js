@@ -172,17 +172,24 @@ REST.controller(
                     'data':[],
                  }
 
-                 for(var key in data['result']) {
-                     $scope.result['data'].push( data['result'][key] );
-                 }
+                 if(data.hasOwnProperty('result')) {
+                     if( ! ( data.hasOwnProperty('error') ) ) {
+                         for(var key in data['result']) {
+                             $scope.result['data'].push( data['result'][key] );
+                         }
 
-                 if ( $scope.result.data.length > 0 ) {
-                     $scope.result.alert = 'success';
-                     $scope.result.message = 'Query successfull!';
-                     console.log($scope.result.data.length, $scope.result.data);
-                 } else {
-                     $scope.result.alert = 'warning';
-                     $scope.result.message = 'Query was successfull but did not return any data.';
+                         if ( $scope.result.data.length > 0 ) {
+                             $scope.result.alert = 'success';
+                             $scope.result.message = 'Query successfull!';
+                             console.log($scope.result.data.length, $scope.result.data);
+                         } else {
+                             $scope.result.alert = 'warning';
+                             $scope.result.message = 'Query was successfull but did not return any data.';
+                         }
+                     }  else {
+                         $scope.result.alert = 'danger';
+                         $scope.result.message = 'Server returned an error: ' + data.result.error;
+                     }
                  }
              })
              .error(function(data) {

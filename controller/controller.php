@@ -26,12 +26,11 @@ Class RestController {
 
     public function getAllUsers() {
         $result = $this->getAllDatabaseUsers();
-        var_dump($result);
 
         if( $result['success'] === true ) {
             $message = $result['message'];
         } else {
-            $message = 'Error: Unable to retrieve a list of all users!';
+            $message = array('error' => 'Unable to retrieve a list of all users!');
         }
 
         $this->output($message);
@@ -43,7 +42,7 @@ Class RestController {
         if( $result['success'] === true ) {
             $message = $result['message'];
         } else {
-            $message = 'Error: Unable to retrieve specified user!';
+            $message = array('error' => 'Unable to retrieve specified user!');
         }
 
         $this->output($message);
