@@ -1,6 +1,6 @@
 <?php
 
-Class DatabaseConnection {
+Class DatabaseController {
     const DBPATH = 'database.db';
     private $db, $dbpath;
 
@@ -27,7 +27,7 @@ Class DatabaseConnection {
         try {
             $user_exists = $this->getUserFromDatabase( array('username' => $username) );
             if(!empty($user_exists))
-                return false;
+                throw new Exception("User with that username already exists", 1);
         } catch(Exception $e) {
             throw new Exception("Error verifying username availability before saving user to database!", 1);
         }
@@ -41,7 +41,7 @@ Class DatabaseConnection {
             $stmt->bindValue(':password', $password);
             $stmt->bindValue(':email', $email);
 
-            $returned_set = $stmt->execute();
+            $stmt->execute();
         } catch(Exception $e) {
             throw new Exception("Error saving user to database!", 1);
         }

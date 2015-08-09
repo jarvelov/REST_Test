@@ -3,7 +3,7 @@
 require 'controller/database.php';
 require 'controller/dbconnection.php';
 
-$db = new Database( DatabaseConnection::DBPATH );
+$db = new Database( DatabaseController::DBPATH );
 $db->createDatabase();
 
 ?>

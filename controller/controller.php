@@ -9,36 +9,48 @@ Class RestController {
     /** REST callbacks **/
 
     public function addUser($name, $username, $password, $email) {
-        $result = $this->addDatabaseUser($name, $username, $password, $email);
+        try {
+            $result = $this->addDatabaseUser($name, $username, $password, $email);
 
-        if( $result['success'] === true ) {
-            $message = $result['message'];
-        } else {
-            $message = array('error' => 'Unable to save user!');
+            if( $result['success'] === true ) {
+                $message = $result['message'];
+            } else {
+                $message = array('error' => 'Unable to save user!');
+            }
+        } catch(Exception $e) {
+            $message = array('error' => $e->getMessage() );
         }
 
         $this->output($message);
     }
 
     public function getAllUsers() {
-        $result = $this->getAllDatabaseUsers();
+        try {
+            $result = $this->getAllDatabaseUsers();
 
-        if( $result['success'] === true ) {
-            $message = $result['message'];
-        } else {
-            $message = array('error' => 'Unable to retrieve a list of all users!');
+            if( $result['success'] === true ) {
+                $message = $result['message'];
+            } else {
+                $message = array('error' => 'Unable to retrieve a list of all users!');
+            }
+        } catch(Exception $e) {
+            $message = array('error' => $e->getMessage() );
         }
 
         $this->output($message);
     }
 
     public function getUser($username) {
-        $result = $this->getDatabaseUser($username);
+        try {
+            $result = $this->getDatabaseUser($username);
 
-        if( $result['success'] === true ) {
-            $message = $result['message'];
-        } else {
-            $message = array('error' => 'Unable to retrieve specified user!');
+            if( $result['success'] === true ) {
+                $message = $result['message'];
+            } else {
+                $message = array('error' => 'Unable to retrieve specified user!');
+            }
+        } catch(Exception $e) {
+            $message = array('error' => $e->getMessage() );
         }
 
         $this->output($message);
@@ -88,7 +100,7 @@ Class RestController {
         $this->testEnvironment();
 
         try {
-            $this->connection = new DatabaseConnection();
+            $this->connection = new DatabaseController();
         } catch(Exception $e) {
             $this->errors = $e->getMessage();
         }
