@@ -103,7 +103,7 @@ REST.controller(
 
             $scope.Forms.AddUser.hide = !$scope.Forms.AddUser.hide;
             $scope.postURL = $scope.Forms.AddUser.url;
-            $scope.requiredInputs = $scope.Forms.AddUser.requiredInputs();
+            $scope.requiredInputs = $scope.Forms.AddUser.functions.requiredInputs();
         }
 
         $scope.formGetUser = function() {
@@ -111,7 +111,7 @@ REST.controller(
 
             $scope.Forms.GetUser.hide = !$scope.Forms.GetUser.hide;
             $scope.postURL = $scope.Forms.GetUser.url;
-            $scope.requiredInputs = $scope.Forms.GetUser.requiredInputs();
+            $scope.requiredInputs = $scope.Forms.GetUser.functions.requiredInputs();
         }
 
         $scope.getAllUsers = function() {
@@ -119,7 +119,7 @@ REST.controller(
 
             $scope.Forms.GetAllUsers.hide = !$scope.Forms.GetAllUsers.hide;
             $scope.postURL = $scope.Forms.GetAllUsers.url;
-            $scope.requiredInputs = $scope.Forms.AddUser.requiredInputs();
+            $scope.requiredInputs = $scope.Forms.AddUser.functions.requiredInputs();
         }
 
         $scope.reset = function() {
