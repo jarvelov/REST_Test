@@ -145,7 +145,7 @@ REST.controller(
                      $scope.result = {
                         'result':data['result'],
                         'status':'success',
-                        'show':true;
+                        'show':true
                      }
                  })
                  .error(function(data) {
