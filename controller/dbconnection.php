@@ -23,6 +23,15 @@ Class DatabaseConnection {
 
     public function saveUserToDatabase($args) {
         extract($args);
+        //Verify that the username isn't already taken
+        try {
+            $user_with_username = $this->getUserFromDatabase( array('username' => $username) );
+            if(!empty($user_exists))
+                return false;
+        } catch(Exception $e) {
+            throw new Exception("Error verifying username availability before saving user to database!", 1);
+        }
+
         $query = 'INSERT INTO users (username, name, password, email) VALUES (:username, :name, :password, :email)';
 
         try {
@@ -37,10 +46,8 @@ Class DatabaseConnection {
             throw new Exception("Error saving user to database!", 1);
         }
 
-        //We've got this far, return the user from the database
-        $results = $this->getUserFromDatabase( array(
-            'username' => $username
-        ) );
+        //We've got this far, return the user we just saved from the database
+        $results = $this->getUserFromDatabase( array('username' => $username) );
 
         return $results;
     }
