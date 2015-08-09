@@ -62,7 +62,7 @@ Class Model {
                                     <input id="{{input.label}}" type="{{input.type}}" class="form-control" ng-model="inputs[input.slug]" ng-pattern="input.pattern" name="{{input.label}}" />
                                 </div><!-- /.form-group -->
                                 <div id="action-button" class="col-xs-12">
-                                    <input type="submit" class="btn btn-block btn-primary" value="{{form.action}}" />
+                                    <input type="submit" class="btn btn-block btn-primary" value="{{form.action}}" ng-disabled="form.$invalid || !form.$dirty" />
                                 </div><!-- /#action-button -->
                             </form><!-- /form -->
                         </div>
