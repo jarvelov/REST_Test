@@ -170,23 +170,29 @@ REST.controller(
                  $scope.progressPercentage = 60;
                  $scope.result = {
                     'data':[],
-                    'alert':'success',
-                    'show':true
                  }
 
                  for(var key in data['result']) {
                      $scope.result['data'].push( data['result'][key] );
+                 }
+
+                 if ( $scope.result.data.length > 0 ) {
+                     $scope.alert = 'success';
+                     $scope.message = 'Query successfull!';
+                 } else {
+                     $scope.alert = 'warning';
+                     $scope.message = 'Query was successfull but did not return any data.';
                  }
              })
              .error(function(data) {
                  $scope.result = {
                      'data':['Server returned an error!'],
                      'alert':'danger',
-                     'show':true
                  }
               })
               .finally(function(data) {
                   $scope.progressPercentage = 100;
+                  $scope.result.show = true;
                   $timeout(function() {
                       $scope.hideProgress = true;
                       $scope.hideResult = false;
