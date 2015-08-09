@@ -26,11 +26,12 @@ Class DatabaseController {
         //Verify that the username isn't already taken
         try {
             $user_exists = $this->getUserFromDatabase( array('username' => $username) );
-            if(!empty($user_exists))
-                throw new Exception("User with that username already exists", 1);
         } catch(Exception $e) {
             throw new Exception("Error verifying username availability before saving user to database!", 1);
         }
+
+        if(isset($user_exists) AND !empty($user_exists))
+            throw new Exception("User with that username already exists", 1);
 
         $query = 'INSERT INTO users (username, name, password, email) VALUES (:username, :name, :password, :email)';
 
