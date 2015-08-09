@@ -142,6 +142,8 @@ Class RestController {
             $result = false;
         }
 
+        var_dump($result);
+
         return $this->handleDatabaseResult($result);
     }
 
