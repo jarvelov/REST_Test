@@ -150,6 +150,8 @@ REST.controller(
                     'message':'Not enough data in input.'
                 }
 
+                $scope.hideProgress = true;
+
                 return;
             }
 
