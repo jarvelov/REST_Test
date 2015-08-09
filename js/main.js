@@ -45,6 +45,9 @@ REST.controller(
                 functions:{
                     isHidden:function() {
                         return $scope.Forms.AddUser.hide;
+                    },
+                    requiredInputs:function() {
+                        return Object.keys($scope.Forms.AddUser.inputs).length;
                     }
                 }
             },
@@ -68,6 +71,9 @@ REST.controller(
                 functions:{
                     isHidden:function() {
                         return $scope.Forms.GetUser.hide;
+                    },
+                    requiredInputs:function() {
+                        return Object.keys($scope.Forms.GetUser.inputs).length;
                     }
                 }
             },
@@ -80,9 +86,13 @@ REST.controller(
                 },
                 url:'users/get_all_users/',
                 hide:true,
+                inputs:{},
                 functions:{
                     isHidden:function() {
                         return $scope.Forms.GetAllUsers.hide;
+                    },
+                    requiredInputs:function() {
+                        return Object.keys($scope.Forms.GetAllUsers.inputs).length;
                     }
                 }
             }
@@ -90,20 +100,26 @@ REST.controller(
 
         $scope.formAddUser = function() {
             $scope.reset();
+
             $scope.Forms.AddUser.hide = !$scope.Forms.AddUser.hide;
             $scope.postURL = $scope.Forms.AddUser.url;
+            $scope.requiredInputs = $scope.Forms.AddUser.requiredInputs();
         }
 
         $scope.formGetUser = function() {
             $scope.reset();
+
             $scope.Forms.GetUser.hide = !$scope.Forms.GetUser.hide;
             $scope.postURL = $scope.Forms.GetUser.url;
+            $scope.requiredInputs = $scope.Forms.GetUser.requiredInputs();
         }
 
         $scope.getAllUsers = function() {
             $scope.reset();
+
             $scope.Forms.GetAllUsers.hide = !$scope.Forms.GetAllUsers.hide;
             $scope.postURL = $scope.Forms.GetAllUsers.url;
+            $scope.requiredInputs = $scope.Forms.AddUser.requiredInputs();
         }
 
         $scope.reset = function() {
@@ -126,15 +142,13 @@ REST.controller(
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
-            if( Object.keys($scope.inputs).length > 0 ) {
+            if( Object.keys($scope.inputs).length < $scope.requiredInputs ) {
                 var parameters = "";
                 angular.forEach( $scope.inputs, function(input) {
                     parameters += input + '/';
                 });
 
                 var fullUrl = $scope.postURL + parameters;
-
-                console.log(fullUrl);
 
                 $http({
                   method  : 'POST',
