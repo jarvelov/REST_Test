@@ -37,10 +37,8 @@ Class DatabaseConnection {
             throw new Exception("Error saving user to database!", 1);
         }
 
-        $results = array();
-        while( $row = $returned_set->fetchArray(SQLITE3_ASSOC) ) {
-            $results[] = $row;
-        }
+        $last_id = sqlite_last_insert_rowid():
+        $results = array($last_id);
 
         return $results;
     }
