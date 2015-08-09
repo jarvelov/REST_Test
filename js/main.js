@@ -181,7 +181,7 @@ REST.controller(
                          if ( $scope.result.data.length > 0 ) {
                              $scope.result.alert = 'success';
                              $scope.result.message = 'Query successfull!';
-                             console.log($scope.result.data.length, $scope.result.data);
+                             $scope.result.status = true;
                          } else {
                              $scope.result.alert = 'warning';
                              $scope.result.message = 'Query was successfull but did not return any data.';
