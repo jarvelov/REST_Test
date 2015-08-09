@@ -173,7 +173,7 @@ REST.controller(
                  }
 
                  if(data.hasOwnProperty('result')) {
-                     if( ! ( data.hasOwnProperty('error') ) ) {
+                     if( ! ( data.result.hasOwnProperty('error') ) ) {
                          for(var key in data['result']) {
                              $scope.result['data'].push( data['result'][key] );
                          }
