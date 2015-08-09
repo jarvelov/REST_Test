@@ -152,40 +152,40 @@ REST.controller(
 
                 return;
             }
-                var parameters = "";
-                angular.forEach( $scope.inputs, function(input) {
-                    parameters += input + '/';
-                });
 
-                var fullUrl = $scope.postURL + parameters;
+            var parameters = "";
+            angular.forEach( $scope.inputs, function(input) {
+                parameters += input + '/';
+            });
 
-                $http({
-                  method  : 'POST',
-                  url     : fullUrl
-                 })
-                 .success(function(data) {
-                     $scope.progressPercentage = 60;
-                     $scope.result = {
-                        'result':data['result'],
-                        'status':'success',
-                        'show':true
-                     }
-                 })
-                 .error(function(data) {
-                     $scope.result = {
-                         'result':{},
-                         'status':'danger',
-                         'show':true
-                     }
-                  })
-                  .finally(function(data) {
-                      $scope.progressPercentage = 100;
-                      $timeout(function() {
-                          $scope.hideProgress = true;
-                          $scope.hideResult = false;
-                      }, 500);
-                  });
-            }
+            var fullUrl = $scope.postURL + parameters;
+
+            $http({
+              method  : 'POST',
+              url     : fullUrl
+             })
+             .success(function(data) {
+                 $scope.progressPercentage = 60;
+                 $scope.result = {
+                    'result':data['result'],
+                    'status':'success',
+                    'show':true
+                 }
+             })
+             .error(function(data) {
+                 $scope.result = {
+                     'result':{},
+                     'status':'danger',
+                     'show':true
+                 }
+              })
+              .finally(function(data) {
+                  $scope.progressPercentage = 100;
+                  $timeout(function() {
+                      $scope.hideProgress = true;
+                      $scope.hideResult = false;
+                  }, 500);
+              });
         }
 
     }
