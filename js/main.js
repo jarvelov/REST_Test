@@ -120,52 +120,49 @@ REST.controller(
 
             $scope.inputs = {};
             $scope.postURL = $scope.Forms.url;
-
-            $scope.action = {
-                class:'danger',
-                hide:true,
-                message:'',
-                operation:''
-            }
         }
 
         $scope.sendPost = function() {
             $scope.hideProgress = false;
             $scope.progressPercentage = 30;
 
-            var parameters = "";
-            angular.forEach( $scope.inputs, function(input) {
-                parameters += input + '/';
-            });
+            if( Object.keys($scope.inputs).length > 0 ) {
+                var parameters = "";
+                angular.forEach( $scope.inputs, function(input) {
+                    parameters += input + '/';
+                });
 
-            var fullUrl = $scope.url + parameters;
+                var fullUrl = $scope.postURL + parameters;
 
-            console.log(fullUrl);
+                console.log(fullUrl);
 
-            $http({
-              method  : 'POST',
-              url     : fullUrl
-             })
-              .success(function(data) {
-                  $scope.progressPercentage = 60;
-                  $scope.result = data['result'];
-
-                  $scope.action.class = 'success';
-                  $scope.action.hide = false;
-                  $scope.action.message:'Successfully ' + $scope.action.operation;
-              })
-              .failure(function(data) {
-                  $scope.action.class = 'danger';
-                  $scope.action.hide = false;
-                  $scope.action.message:'Failed to ' + $scope.action.operation;
-              })
-              .finally(function(data) {
-                  $scope.progressPercentage = 100;
-                  $timeout(function() {
-                      $scope.hideProgress = true;
-                      $scope.hideResult = false;
-                  }, 500);
-              });
+                $http({
+                  method  : 'POST',
+                  url     : fullUrl
+                 })
+                 .success(function(data) {
+                     $scope.progressPercentage = 60;
+                     $scope.result = {
+                        'result':data['result'];
+                        'status':'success',
+                        'show':true;
+                     }
+                 })
+                 .error(function(data) {
+                     $scope.result = {
+                         'result':{},
+                         'status':'danger',
+                         'show':true
+                     }
+                  })
+                  .finally(function(data) {
+                      $scope.progressPercentage = 100;
+                      $timeout(function() {
+                          $scope.hideProgress = true;
+                          $scope.hideResult = false;
+                      }, 500);
+                  });
+            }
         }
 
     }
