@@ -37,7 +37,7 @@ Class DatabaseConnection {
             throw new Exception("Error saving user to database!", 1);
         }
 
-        $last_id = sqlite_last_insert_rowid();
+        var_dump($returned_set);
         $results = array($last_id);
 
         return $results;
