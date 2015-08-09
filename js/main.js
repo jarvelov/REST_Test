@@ -167,6 +167,7 @@ REST.controller(
               url     : fullUrl
              })
              .success(function(data) {
+                 console.log(data);
                  $scope.progressPercentage = 60;
                  $scope.result = {
                     'data':[],
