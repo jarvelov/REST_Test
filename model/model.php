@@ -80,12 +80,12 @@ Class Model {
                             </div><!-- /.progress -->
                         </div><!-- /#progress-container -->
                         <div class="col-xs-12">
-                            <div class="alert alert-{{result.status}}" ng-show="result.show">{{action.message}}</div>
-                            <table class="table table-striped table-hover table-bordered">
-                                <thead><!--
+                            <div class="alert alert-{{result.alert}}" ng-show="result.show">{{result.message}}</div>
+                            <table class="table table-striped table-hover table-bordered" ng-if="result.status">
+                                <thead>
                                     <tr style="text-transform:uppercase">
-                                        <th ng-repeat="(key, value) in result.data">{{key}}</th>
-                                    </tr>-->
+                                        <th ng-repeat="(key, value) in result.data[0]">{{key}}</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr ng-repeat="row in result.data">
