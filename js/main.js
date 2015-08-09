@@ -177,17 +177,17 @@ REST.controller(
                  }
 
                  if ( $scope.result.data.length > 0 ) {
-                     $scope.alert = 'success';
-                     $scope.message = 'Query successfull!';
+                     $scope.result.alert = 'success';
+                     $scope.result.message = 'Query successfull!';
                  } else {
-                     $scope.alert = 'warning';
-                     $scope.message = 'Query was successfull but did not return any data.';
+                     $scope.result.alert = 'warning';
+                     $scope.result.message = 'Query was successfull but did not return any data.';
                  }
              })
              .error(function(data) {
                  $scope.result = {
                      'data':['Server returned an error!'],
-                     'alert':'danger',
+                     'alert':'danger'
                  }
               })
               .finally(function(data) {
