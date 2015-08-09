@@ -169,14 +169,20 @@ REST.controller(
              .success(function(data) {
                  $scope.progressPercentage = 60;
                  $scope.result = {
-                    'result':data['result'],
+                    'result':{},
                     'status':'success',
                     'show':true
+                 }
+
+                 for(var key in data['result']) {
+                     $scope.result['result'].key = data['result'][key];
                  }
              })
              .error(function(data) {
                  $scope.result = {
-                     'result':{},
+                     'result':{
+                         0:'Server returned an error'
+                     },
                      'status':'danger',
                      'show':true
                  }
