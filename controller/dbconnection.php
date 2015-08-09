@@ -25,7 +25,7 @@ Class DatabaseConnection {
         extract($args);
         //Verify that the username isn't already taken
         try {
-            $user_with_username = $this->getUserFromDatabase( array('username' => $username) );
+            $user_exists = $this->getUserFromDatabase( array('username' => $username) );
             if(!empty($user_exists))
                 return false;
         } catch(Exception $e) {
