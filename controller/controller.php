@@ -148,8 +148,8 @@ Class RestController {
                 'email' => $email
             ) );
         } catch(Exception $e) {
-            //TODO handle error
-            $result = false;
+            throw new Exception( $e->getMessage(), $e->getCode() );
+
         }
 
         return $this->handleDatabaseResult($result);
@@ -161,8 +161,7 @@ Class RestController {
                 'username' => $username
             ) );
         } catch(Exception $e) {
-            //TODO handle error
-            $result = false;
+            throw new Exception( $e->getMessage(), $e->getCode() );
         }
 
         return $this->handleDatabaseResult($result);
@@ -172,8 +171,7 @@ Class RestController {
         try {
             $result = $this->connection->getAllUsersFromDatabase();
         } catch(Exception $e) {
-            //TODO handle error
-            $result = false;
+            throw new Exception( $e->getMessage(), $e->getCode() );
         }
 
         return $this->handleDatabaseResult($result);
