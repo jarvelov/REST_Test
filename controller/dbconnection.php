@@ -37,7 +37,7 @@ Class DatabaseConnection {
             throw new Exception("Error saving user to database!", 1);
         }
 
-        var_dump($returned_set);
+        var_dump($stmt);
         $results = array();
 
         return $results;
