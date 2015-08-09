@@ -38,7 +38,7 @@ Class DatabaseConnection {
         }
 
         var_dump($returned_set);
-        $results = array($last_id);
+        $results = array();
 
         return $results;
     }
