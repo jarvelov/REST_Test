@@ -11,8 +11,6 @@ Class RestController {
     public function addUser($name, $username, $password, $email) {
         $result = $this->addDatabaseUser($name, $username, $password, $email);
 
-        var_dump($result);
-
         if( $result['success'] === true ) {
             $message = $result['message'];
         } else {
