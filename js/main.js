@@ -144,7 +144,9 @@ REST.controller(
 
             if( Object.keys($scope.inputs).length < $scope.requiredInputs ) {
                 $scope.result = {
-                    'result':{},
+                    'result':{
+                        0:'Invalid request'
+                    },
                     'status':'danger',
                     'show':true,
                     'message':'Not enough data in input.'
