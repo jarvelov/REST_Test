@@ -13,8 +13,8 @@ Class RestController {
         if(isset($raw_data['data'])) {
             $data = $data['data'];
             $args = array();
-            foreach ($data as strtolower($key) => $value) {
-                switch($key) {
+            foreach ($data as $key => $value) {
+                switch( strtolower($key) ) {
                     case 'name':
                         $args['name'] = $value;
                         break;
