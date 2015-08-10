@@ -3,12 +3,14 @@
 Class RestController {
 
     function __construct() {
+        $this->testEnvironment();
         $this->init();
     }
 
     /** REST callbacks **/
 
-    public function addUser($name, $username, $password, $email) {
+    public function addUser($data) {
+        /*
         try {
             $result = $this->addDatabaseUser($name, $username, $password, $email);
 
@@ -22,6 +24,26 @@ Class RestController {
         }
 
         $this->output($message);
+        */
+    }
+
+    public function getUser($data) {
+        var_dump($data);
+        /*
+        try {
+            $result = $this->getDatabaseUser($username);
+
+            if( $result['success'] === true ) {
+                $message = $result['message'];
+            } else {
+                $message = array('error' => 'Unable to retrieve specified user!');
+            }
+        } catch(Exception $e) {
+            $message = array('error' => $e->getMessage() );
+        }
+
+        $this->output($message);
+        */
     }
 
     public function getAllUsers() {
@@ -32,22 +54,6 @@ Class RestController {
                 $message = $result['message'];
             } else {
                 $message = array('error' => 'Unable to retrieve a list of all users!');
-            }
-        } catch(Exception $e) {
-            $message = array('error' => $e->getMessage() );
-        }
-
-        $this->output($message);
-    }
-
-    public function getUser($username) {
-        try {
-            $result = $this->getDatabaseUser($username);
-
-            if( $result['success'] === true ) {
-                $message = $result['message'];
-            } else {
-                $message = array('error' => 'Unable to retrieve specified user!');
             }
         } catch(Exception $e) {
             $message = array('error' => $e->getMessage() );
@@ -97,8 +103,6 @@ Class RestController {
 
     //Init app
     public function init() {
-        $this->testEnvironment();
-
         try {
             $this->connection = new DatabaseController();
         } catch(Exception $e) {
@@ -113,17 +117,19 @@ Class RestController {
     public function addRoutes() {
         //Hook up all REST requests to functions
         Flight::route('/', function() {
-            new Model($this->errors);
+            Flight::render('view', array('errors' => $this->errors));
         });
 
         //Add a new user
-        Flight::route('/users/add_user/@name/@username/@password/@email', function( $name, $username, $password, $email ) {
-            $this->addUser( $name, $username, $password, $email );
+        Flight::route('/users/add_user', function() {
+            $data = Flight::request()->data;
+            $this->addUser( $data );
         } );
 
         //Get user by username
-        Flight::route('/users/get_user/@username', function( $username ) {
-            $this->getUser( $username );
+        Flight::route('/users/get_user', function() {
+            $data = Flight::request()->data;
+            $this->getUser( $data );
         });
 
         //Get all users
