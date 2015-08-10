@@ -22,6 +22,8 @@ For this project I ended up using:
     * [Bootstrap](http://getbootstrap.com/)
     * [jQuery](http://jquery.com/).
 
+Project dependencies are managed with [Composer](https://getcomposer.org) and [Bower](https://bower.io)
+
 I learned a lot about AngularJS on the way, which was a lot of fun.
 
 ##Demo
@@ -32,13 +34,15 @@ Click here for a live demo: [Demo](https://tobias.jarvelov.se/projects/REST_Test
 
 Make sure you have all the requirements before proceeding.
 
-Clone the repo to and then browse to the address with a web browser.
-The database is automatically created on the first visit.
+Clone the repo to and then run `php composer.phar install`
+Then browse to the address with a web browser.
 
+The database is automatically created on the first visit.
 To empty the database simply remove the `database.db` and revisit the address.
 
 ##Requirements
 
+* Composer
 * PHP 5.4 or higher
 * AngularJS 1.4.3 or higher
 * SQLite 3
