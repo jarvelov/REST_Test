@@ -155,9 +155,9 @@ REST.controller(
                 return;
             }
 
-            var parameters = "";
-            angular.forEach( $scope.inputs, function(input, test) {
-                console.log(input, test);
+            var data = {};
+            angular.forEach( $scope.inputs, function(value, model) {
+                data[model] = value;
             });
 
             var fullUrl = $scope.postURL;
@@ -165,7 +165,7 @@ REST.controller(
             $http({
               method  : 'POST',
               url     : fullUrl,
-              data    : {}
+              data    : data
              })
              .success(function(data) {
                  console.log(data);
