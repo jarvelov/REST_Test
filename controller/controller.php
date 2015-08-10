@@ -161,9 +161,7 @@ Class RestController {
         return $this->handleDatabaseResult($result);
     }
 
-    private function getDatabaseUser($data) {
-        var_dump($data);
-        /*
+    private function getDatabaseUser($username) {
         try {
             $result = $this->connection->getUserFromDatabase( array(
                 'username' => $username
@@ -173,7 +171,6 @@ Class RestController {
         }
 
         return $this->handleDatabaseResult($result);
-        */
     }
 
     private function getAllDatabaseUsers() {
