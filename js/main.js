@@ -157,14 +157,15 @@ REST.controller(
 
             var parameters = "";
             angular.forEach( $scope.inputs, function(input) {
-                parameters += input + '/';
+                console.log(input);
             });
 
             var fullUrl = $scope.postURL;
 
             $http({
               method  : 'POST',
-              url     : fullUrl
+              url     : fullUrl,
+              data    : {}
              })
              .success(function(data) {
                  console.log(data);
