@@ -46,7 +46,7 @@ Class RestController {
                 if( $result['success'] === true ) {
                     $message = $result['message'];
                 } else {
-                    $message = array('error' => 'Unable to retrieve specified user!');
+                    $message = array('error' => 'No user with that username exists!');
                 }
             } catch(Exception $e) {
                 $message = array('error' => $e->getMessage() );
@@ -65,7 +65,7 @@ Class RestController {
             if( $result['success'] === true ) {
                 $message = $result['message'];
             } else {
-                $message = array('error' => 'Unable to retrieve a list of all users!');
+                $message = array('error' => 'There are no users in the database!');
             }
         } catch(Exception $e) {
             $message = array('error' => $e->getMessage() );
