@@ -168,7 +168,6 @@ REST.controller(
               data    : data
              })
              .success(function(data) {
-                 console.log(data);
                  $scope.progressPercentage = 60;
                  $scope.result = {
                     'data':[],
@@ -195,7 +194,6 @@ REST.controller(
                  }
              })
              .error(function(data) {
-                 console.log(data);
                  $scope.result = {
                      'data':['Server encountered an internal error!'],
                      'alert':'danger'
