@@ -190,14 +190,14 @@ REST.controller(
                          }
                      }  else {
                          $scope.result.alert = 'danger';
-                         $scope.result.message = 'Server returned an error: ' + data.result.error;
+                         $scope.result.message = 'Error: ' + data.result.error;
                      }
                  }
              })
              .error(function(data) {
                  console.log(data);
                  $scope.result = {
-                     'data':['Server returned an error!'],
+                     'data':['Server encountered an internal error!'],
                      'alert':'danger'
                  }
               })

@@ -10,36 +10,25 @@ Class RestController {
     /** REST callbacks **/
 
     public function addUser($data) {
-        $args = array();
-        foreach ($data as $key => $value) {
-            var_dump($key);
-            switch( strtolower($key) ) {
-                case 'name':
-                    $args['name'] = $value;
-                    break;
-                case 'username':
-                    $args['username'] = $value;
-                    break;
-                case 'password':
-                    $args['password'] = $value;
-                    break;
-                case 'email':
-                    $args['email'] = $value;
-                    break;
-            }
-        }
+        $missing = $this->missingRequiredParameters( $data, array( 'name', 'username', 'password', 'email' ) );
 
-        $required = ['name', 'username', 'password', 'email'];
-        foreach ($required as $key) {
-            if ( ! ( array_key_exists($key, $args) ) ) {
-                $message = array( 'error' => 'Data is missing parameter ' . $key);
+        if($missing) {
+            $parameters = "";
+            foreach($missing as $error)
+                $parameters .=  $error . ' ';
             }
+
+            $message = array( 'error' => 'Data is missing parameter(s): ' . $parameters );
         }
 
         if( ! ( isset($message) ) ) {
-            extract($args);
             try {
-                $result = $this->addDatabaseUser($name, $username, $password, $email);
+                $result = $this->addDatabaseUser(
+                    $data->name,
+                    $data->username,
+                    $data->password,
+                    $data->email
+                );
 
                 if( $result['success'] === true ) {
                     $message = $result['message'];
@@ -55,11 +44,20 @@ Class RestController {
     }
 
     public function getUser($data) {
-        var_dump($data, property_exists( $data, 'username' ) );
-        if( property_exists( $data, 'username' ) ) {
-            $username = $data->username;
+        $missing = $this->missingRequiredParameters( $data, array('username') );
+
+        if($missing) {
+            $parameters = "";
+            foreach($missing as $error)
+                $parameters .=  $error . ' '
+            }
+
+            $message = array( 'error' => 'Data is missing parameter(s): ' . $parameters);
+        }
+
+        if( ( ! ( isset( $message ) ) ) {
             try {
-                $result = $this->getDatabaseUser($username);
+                $result = $this->getDatabaseUser($data->username);
 
                 if( $result['success'] === true ) {
                     $message = $result['message'];
@@ -69,8 +67,6 @@ Class RestController {
             } catch(Exception $e) {
                 $message = array('error' => $e->getMessage() );
             }
-        } else {
-            $message = array('error' => 'Missing property username in request data!');
         }
 
         $this->output($message);
@@ -123,6 +119,27 @@ Class RestController {
         }
 
         return $return;
+    }
+
+    private function missingRequiredParameters($obj, $required) {
+        $args = array();
+        foreach ($obj as $key => $value) {
+            $args[$key] = $value;
+        }
+
+        $missing = array();
+
+        foreach ($required as $key) {
+            if ( ! ( array_key_exists($key, $args) ) ) {
+                $missing[] = $key);
+            }
+        }
+
+        if(!$missing) {
+            $missing = false;
+        }
+
+        return $missing;
     }
 
     //Echo string in JSON
