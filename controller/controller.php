@@ -9,9 +9,9 @@ Class RestController {
 
     /** REST callbacks **/
 
-    public function addUser($data) {
+    public function addUser($raw_data) {
         if(isset($raw_data['data'])) {
-            $data = $data['data'];
+            $data = $raw_data['data'];
             $args = array();
             foreach ($data as $key => $value) {
                 switch( strtolower($key) ) {
