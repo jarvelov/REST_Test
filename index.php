@@ -8,7 +8,7 @@ require 'vendor/autoload.php';
 require 'controller/controller.php';
 require 'controller/database.php';
 require 'controller/databasecontroller.php';
-require 'model/model.php';
+require 'views/view.php';
 
 $controller = new RestController();
 $controller->start();
