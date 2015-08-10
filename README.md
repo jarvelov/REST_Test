@@ -17,7 +17,7 @@ A user needed to have the following properties:
 For this project I ended up using:
 
 * [Angular JS](http://angularjs.org/)
-* [Flight PHP framework[](http://flightphp.com/)
+* [Flight PHP framework](http://flightphp.com/)
 * [SQLite 3](https://www.sqlite.org/)
 * [Bootstrap](http://getbootstrap.com/)
 * [jQuery](http://jquery.com/).
