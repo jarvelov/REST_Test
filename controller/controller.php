@@ -53,9 +53,8 @@ Class RestController {
         $this->output($message);
     }
 
-    public function getUser($raw_data) {
-        $data = $data['data'];
-        if(isset($data['username'])) {
+    public function getUser($data) {
+        if( property_exists( $data, 'username' ) ) {
             $username = $data['username'];
             try {
                 $result = $this->getDatabaseUser($username);
