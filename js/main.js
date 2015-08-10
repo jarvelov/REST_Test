@@ -201,8 +201,7 @@ REST.controller(
                      'alert':'danger'
                  }
               })
-              .finally(function(data) {
-                  console.log(data);
+              .finally(function() {
                   $scope.progressPercentage = 100;
                   $scope.result.show = true;
                   $timeout(function() {

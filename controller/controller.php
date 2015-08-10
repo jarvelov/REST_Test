@@ -54,7 +54,7 @@ Class RestController {
     }
 
     public function getUser($data) {
-        var_dump($data->username);
+        var_dump( property_exists( $data, 'username' ) );
         if( property_exists( $data, 'username' ) ) {
             $username = $data['username'];
             try {
