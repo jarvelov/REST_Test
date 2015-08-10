@@ -12,16 +12,7 @@ Class RestController {
     public function addUser($data) {
         $missing = $this->missingRequiredParameters( $data, array( 'name', 'username', 'password', 'email' ) );
 
-        if($missing) {
-            $parameters = "";
-            foreach($missing as $error) {
-                $parameters .=  $error . ' ';
-            }
-
-            $message = array( 'error' => 'Data is missing parameter(s): ' . $parameters );
-        }
-
-        if( ! ( isset($message) ) ) {
+        if( ! ($missing) ) {
             try {
                 $result = $this->addDatabaseUser(
                     $data->name,
@@ -38,6 +29,8 @@ Class RestController {
             } catch(Exception $e) {
                 $message = array('error' => $e->getMessage() );
             }
+        } else {
+            $message = $missing;
         }
 
         $this->output($message);
@@ -46,16 +39,7 @@ Class RestController {
     public function getUser($data) {
         $missing = $this->missingRequiredParameters( $data, array('username') );
 
-        if($missing) {
-            $parameters = "";
-            foreach($missing as $error)
-                $parameters .=  $error . ' '
-            }
-
-            $message = array( 'error' => 'Data is missing parameter(s): ' . $parameters);
-        }
-
-        if( ( ! ( isset( $message ) ) ) {
+        if( ! ($missing) ) {
             try {
                 $result = $this->getDatabaseUser($data->username);
 
@@ -67,6 +51,8 @@ Class RestController {
             } catch(Exception $e) {
                 $message = array('error' => $e->getMessage() );
             }
+        } else {
+            $message = $missing;
         }
 
         $this->output($message);
@@ -133,7 +119,14 @@ Class RestController {
             }
         }
 
-        if(!$missing) {
+        if($missing) {
+            $parameters = "";
+            foreach($missing as $error) {
+                $parameters .=  $error . ' ';
+            }
+
+            $message = array( 'error' => 'Data is missing parameter(s): ' . $parameters );
+        } else {
             $missing = false;
         }
 
