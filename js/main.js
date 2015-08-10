@@ -194,12 +194,14 @@ REST.controller(
                  }
              })
              .error(function(data) {
+                 console.log(data);
                  $scope.result = {
                      'data':['Server returned an error!'],
                      'alert':'danger'
                  }
               })
               .finally(function(data) {
+                  console.log(data);
                   $scope.progressPercentage = 100;
                   $scope.result.show = true;
                   $timeout(function() {
