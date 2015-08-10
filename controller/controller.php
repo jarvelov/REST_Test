@@ -10,7 +10,7 @@ Class RestController {
     /** REST callbacks **/
 
     public function addUser($data) {
-        var_dump($data, property_exists( $data, 'username' ) );
+        var_dump($data, property_exists( $data[0], 'username' ) );
         $args = array();
         foreach ($data as $key => $value) {
             switch( strtolower($key) ) {
