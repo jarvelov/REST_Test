@@ -14,7 +14,7 @@ Class RestController {
 
         if($missing) {
             $parameters = "";
-            foreach($missing as $error)
+            foreach($missing as $error) {
                 $parameters .=  $error . ' ';
             }
 
