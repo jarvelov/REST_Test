@@ -64,5 +64,3 @@ To empty the database simply remove the `database.db` and revisit the address.
 * PHP 5.4 or higher
 * AngularJS 1.4.3 or higher
 * SQLite 3
-* Bootstrap 3
-* jQuery
