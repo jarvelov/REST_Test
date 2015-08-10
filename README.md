@@ -28,13 +28,31 @@ I learned a lot about AngularJS on the way, which was a lot of fun.
 
 ##Demo
 
-Click here for a live demo: [Demo](https://tobias.jarvelov.se/projects/REST_Test);
+Click here for a live demo: [Demo](https://tobias.jarvelov.se/projects/REST_Test)
 
 ##Install
 
 Make sure you have all the requirements before proceeding.
 
-Clone the repo to and then run `php composer.phar install`
+Clone the repo
+
+`git clone https://github.com/jarvelov/REST_Test.git`
+
+Change into the directory
+
+`cd REST_Test`
+
+Run composer (install it first if you haven't got it already)
+
+`php composer.phar install`
+
+Make sure the directory is writable by the web server
+Note: This is for Apache2 on Ubuntu 14.04. Refer to your distributions/web documentation if this isn't what you are using.
+
+Make sure you run this inside the `REST_Test` directory!
+
+`chown www-data:www-data . -R`
+
 Then browse to the address with a web browser.
 
 The database is automatically created on the first visit.
