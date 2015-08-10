@@ -96,9 +96,7 @@ Class RestController {
         if ( !class_exists('SQLite3') )
             $errors[] = 'SQLite3 is not installed. Please refer to your distribution for install instructions! (Ubuntu: apt-get install sqlite php5-sqlite)';
 
-        if( class_exists('Flight') ) {
-            $this->addRoutes();
-        } else {
+        if( !class_exists('Flight') ) {
             $errors[] = "Error: Flight framework is not initalized!";
         }
 
@@ -152,11 +150,11 @@ Class RestController {
     public function init() {
         try {
             $this->connection = new DatabaseController();
+            $this->addRoutes();
+            $this->start();
         } catch(Exception $e) {
             $this->errors = $e->getMessage();
         }
-
-        $this->start();
     }
 
     /* Flight Framework functions */
