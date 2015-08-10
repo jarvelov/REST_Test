@@ -1,5 +1,5 @@
 body {
-    background-image: url('http://subtlepatterns.com/patterns/tree_bark.png');
+    background-image: '../img/tree_bark.png');
 }
 
 .row {
