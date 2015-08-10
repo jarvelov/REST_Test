@@ -160,6 +160,8 @@ REST.controller(
                 data[parameter] = value;
             });
 
+            console.log(data);
+
             $http({
               method  : 'POST',
               url     : $scope.postURL,
