@@ -160,7 +160,7 @@ REST.controller(
                 parameters += input + '/';
             });
 
-            var fullUrl = $scope.postURL + parameters;
+            var fullUrl = $scope.postURL;
 
             $http({
               method  : 'POST',
