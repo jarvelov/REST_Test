@@ -152,13 +152,13 @@ Class RestController {
         //Add a new user
         Flight::route('/users/add_user', function() {
             $raw_data = Flight::request()->data;
-            $this->addUser( $raw_data->data );
+            $this->addUser( $raw_data );
         } );
 
         //Get user by username
         Flight::route('/users/get_user', function() {
             $raw_data = Flight::request()->data;
-            $this->getUser( $raw_data->data );
+            $this->getUser( $raw_data );
         });
 
         //Get all users
