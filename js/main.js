@@ -15,7 +15,7 @@ REST.controller(
                     success:'added user',
                     danger:'add user'
                 },
-                url:'users/add_user/',
+                url:'users/add_user',
                 hide:true,
                 inputs:{
                     name:{
@@ -58,7 +58,7 @@ REST.controller(
                     success:'get user',
                     danger:'get user'
                 },
-                url:'users/get_user/',
+                url:'users/get_user',
                 hide:true,
                 inputs:{
                     username:{
@@ -84,7 +84,7 @@ REST.controller(
                     success:'got all users',
                     danger:'get all users'
                 },
-                url:'users/get_all_users/',
+                url:'users/get_all_users',
                 hide:true,
                 inputs:{},
                 functions:{
@@ -144,10 +144,10 @@ REST.controller(
 
             if( Object.keys($scope.inputs).length < $scope.requiredInputs ) {
                 $scope.result = {
-                    'data':['Invalid request'],
+                    'data':['Not enough data'],
                     'alert':'danger',
                     'show':true,
-                    'message':'Not enough data in input.'
+                    'message':'Please fill out all required fields.'
                 }
 
                 $scope.hideProgress = true;
