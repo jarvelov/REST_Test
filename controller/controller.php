@@ -10,6 +10,7 @@ Class RestController {
     /** REST callbacks **/
 
     public function addUser($data) {
+        var_dump($data, property_exists( $data, 'username' ) );
         $args = array();
         foreach ($data as $key => $value) {
             switch( strtolower($key) ) {
@@ -56,7 +57,7 @@ Class RestController {
     public function getUser($data) {
         var_dump($data, property_exists( $data, 'username' ) );
         if( property_exists( $data, 'username' ) ) {
-            $username = $data['username'];
+            $username = $data->username;
             try {
                 $result = $this->getDatabaseUser($username);
 
