@@ -115,7 +115,7 @@ Class RestController {
 
         foreach ($required as $key) {
             if ( ! ( array_key_exists($key, $args) ) ) {
-                $missing[] = $key);
+                $missing[] = $key;
             }
         }
 
