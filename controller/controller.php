@@ -9,35 +9,30 @@ Class RestController {
 
     /** REST callbacks **/
 
-    public function addUser($raw_data) {
-        if(isset($raw_data['data'])) {
-            $data = $raw_data['data'];
-            $args = array();
-            foreach ($data as $key => $value) {
-                switch( strtolower($key) ) {
-                    case 'name':
-                        $args['name'] = $value;
-                        break;
-                    case 'username':
-                        $args['username'] = $value;
-                        break;
-                    case 'password':
-                        $args['password'] = $value;
-                        break;
-                    case 'email':
-                        $args['email'] = $value;
-                        break;
-                }
+    public function addUser($data) {
+        $args = array();
+        foreach ($data as $key => $value) {
+            switch( strtolower($key) ) {
+                case 'name':
+                    $args['name'] = $value;
+                    break;
+                case 'username':
+                    $args['username'] = $value;
+                    break;
+                case 'password':
+                    $args['password'] = $value;
+                    break;
+                case 'email':
+                    $args['email'] = $value;
+                    break;
             }
+        }
 
-            $required = ['name', 'username', 'password', 'email'];
-            foreach ($required as $key) {
-                if ( ! ( array_key_exists($key, $args) ) ) {
-                    $message = array( 'error' => 'Data is missing parameter ' . $key);
-                }
+        $required = ['name', 'username', 'password', 'email'];
+        foreach ($required as $key) {
+            if ( ! ( array_key_exists($key, $args) ) ) {
+                $message = array( 'error' => 'Data is missing parameter ' . $key);
             }
-        } else {
-            $message = array('error' => 'No data in request! Data should be in JSON format');
         }
 
         if( ! ( isset($message) ) ) {
@@ -59,26 +54,22 @@ Class RestController {
     }
 
     public function getUser($raw_data) {
-        if(isset($raw_data['data'])) {
-            $data = $data['data'];
-            if(isset($data['username'])) {
-                $username = $data['username'];
-                try {
-                    $result = $this->getDatabaseUser($username);
+        $data = $data['data'];
+        if(isset($data['username'])) {
+            $username = $data['username'];
+            try {
+                $result = $this->getDatabaseUser($username);
 
-                    if( $result['success'] === true ) {
-                        $message = $result['message'];
-                    } else {
-                        $message = array('error' => 'Unable to retrieve specified user!');
-                    }
-                } catch(Exception $e) {
-                    $message = array('error' => $e->getMessage() );
+                if( $result['success'] === true ) {
+                    $message = $result['message'];
+                } else {
+                    $message = array('error' => 'Unable to retrieve specified user!');
                 }
-            } else {
-                $message = array('error' => 'Missing property username in request data!');
+            } catch(Exception $e) {
+                $message = array('error' => $e->getMessage() );
             }
         } else {
-            $message = array('error' => 'No data in request! Data should be in JSON format');
+            $message = array('error' => 'Missing property username in request data!');
         }
 
         $this->output($message);
@@ -161,13 +152,13 @@ Class RestController {
         //Add a new user
         Flight::route('/users/add_user', function() {
             $raw_data = Flight::request()->data;
-            $this->addUser( $data );
+            $this->addUser( $raw_data->data );
         } );
 
         //Get user by username
         Flight::route('/users/get_user', function() {
             $raw_data = Flight::request()->data;
-            $this->getUser( $raw_data );
+            $this->getUser( $raw_data->data );
         });
 
         //Get all users
