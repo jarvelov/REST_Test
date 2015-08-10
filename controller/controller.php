@@ -10,9 +10,9 @@ Class RestController {
     /** REST callbacks **/
 
     public function addUser($data) {
-        var_dump($data, property_exists( $data[0], 'username' ) );
         $args = array();
         foreach ($data as $key => $value) {
+            var_dump($key);
             switch( strtolower($key) ) {
                 case 'name':
                     $args['name'] = $value;
