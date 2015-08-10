@@ -156,8 +156,8 @@ REST.controller(
             }
 
             var parameters = "";
-            angular.forEach( $scope.inputs, function(input) {
-                console.log(input);
+            angular.forEach( $scope.inputs, function(input, test) {
+                console.log(input, test);
             });
 
             var fullUrl = $scope.postURL;
